@@ -27,11 +27,11 @@ flask_rest_api/
 
 ### Installation
 
-1. Clone the repository:
+Clone the repository:
 
    ```sh
-   git clone https://github.com/yourusername/flask_rest_api.git
-   cd flask_rest_api
+   git clone https://github.com/javedansari81/sunrise-backend.git
+   cd sunrise-backend
 
 ## Create and activate a virtual environment:
 
@@ -46,4 +46,4 @@ pip install -r requirements.txt
 ## Start the Flask application:
 python app.py
 
-Access the Swagger UI for interactive API documentation at http://127.0.0.1:5000/apidocs/.
+Access the Swagger UI for interactive API documentation at http://127.0.0.1:5000/apidocs/.git 
