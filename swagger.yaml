@@ -1,0 +1,114 @@
+swagger: '2.0'
+info:
+  title: Sunrise API
+  description: API for managing teachers in Sunrise
+  version: 1.0.0
+host: localhost:5000
+basePath: /api
+schemes:
+  - http
+paths:
+  /teachers:
+    post:
+      summary: Create a new teacher
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+              age:
+                type: integer
+              gender:
+                type: string
+              img:
+                type: string
+              position:
+                type: string
+      responses:
+        201:
+          description: Teacher created
+    get:
+      summary: Get all teachers
+      responses:
+        200:
+          description: A list of teachers
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                _id:
+                  type: string
+                name:
+                  type: string
+                age:
+                  type: integer
+                gender:
+                  type: string
+                img:
+                  type: string
+                position:
+                  type: string
+  /teachers/{teacher_id}:
+    get:
+      summary: Get a teacher by ID
+      parameters:
+        - in: path
+          name: teacher_id
+          type: string
+      responses:
+        200:
+          description: A teacher
+          schema:
+            type: object
+            properties:
+              _id:
+                type: string
+              name:
+                type: string
+              age:
+                type: integer
+              gender:
+                type: string
+              img:
+                type: string
+              position:
+                type: string
+    put:
+      summary: Update a teacher by ID
+      parameters:
+        - in: path
+          name: teacher_id
+          type: string
+        - in: body
+          name: body
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+              age:
+                type: integer
+              gender:
+                type: string
+              img:
+                type: string
+              position:
+                type: string
+      responses:
+        200:
+          description: Teacher updated
+    delete:
+      summary: Delete a teacher by ID
+      parameters:
+        - in: path
+          name: teacher_id
+          type: string
+      responses:
+        200:
+          description: Teacher deleted

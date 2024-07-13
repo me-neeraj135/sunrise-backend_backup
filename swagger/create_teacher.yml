@@ -1,0 +1,23 @@
+post:
+  summary: Create a new teacher
+  consumes:
+    - application/json
+  parameters:
+    - in: body
+      name: body
+      schema:
+        type: object
+        properties:
+          name:
+            type: string
+          age:
+            type: integer
+          gender:
+            type: string
+          img:
+            type: string
+          position:
+            type: string
+  responses:
+    201:
+      description: Teacher created

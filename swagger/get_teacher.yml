@@ -1,0 +1,26 @@
+get:
+  summary: Get a teacher by ID
+  parameters:
+    - in: path
+      name: teacher_id
+      type: string
+  responses:
+    200:
+      description: A teacher
+      schema:
+        type: object
+        properties:
+          _id:
+            type: string
+          name:
+            type: string
+          age:
+            type: integer
+          gender:
+            type: string
+          img:
+            type: string
+          position:
+            type: string
+    404:
+      description: Teacher not found

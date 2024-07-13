@@ -1,0 +1,24 @@
+put:
+  summary: Update a teacher by ID
+  parameters:
+    - in: path
+      name: teacher_id
+      type: string
+    - in: body
+      name: body
+      schema:
+        type: object
+        properties:
+          name:
+            type: string
+          age:
+            type: integer
+          gender:
+            type: string
+          img:
+            type: string
+          position:
+            type: string
+  responses:
+    200:
+      description: Teacher updated
