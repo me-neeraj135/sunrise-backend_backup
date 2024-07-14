@@ -1,9 +1,0 @@
-delete:
-  summary: Delete a teacher by ID
-  parameters:
-    - in: path
-      name: teacher_id
-      type: string
-  responses:
-    200:
-      description: Teacher deleted

@@ -8,7 +8,6 @@ from app import mongo
 teacher_model = TeacherModel(mongo)
 teacher_detail_model = TeacherDetailModel(mongo)
 
-@swag_from('../../swagger/create_teacher.yml')
 def create_teacher():
     data = request.json
     # Save to teacher collection
@@ -34,7 +33,6 @@ def create_teacher():
 
     return jsonify({"message": "Teacher and details saved successfully"}), 201
 
-@swag_from('../../swagger/get_teachers.yml')
 def get_teachers():
     teachers = teacher_model.find({})  # Fetch all teachers
     if not teachers:
@@ -68,7 +66,6 @@ def get_teachers():
 
     return jsonify(teachers_data), 200
 
-@swag_from('../../swagger/get_teacher.yml')
 def get_teacher(teacher_id):
         # Fetch teacher details
     teacher = teacher_model.find_one({'_id': ObjectId(teacher_id)})
@@ -97,7 +94,6 @@ def get_teacher(teacher_id):
 
     return jsonify(response_data), 200
 
-@swag_from('../../swagger/update_teacher.yml')
 def update_teacher(teacher_id):
     data = request.json
     # Fetch teacher details
@@ -121,7 +117,6 @@ def update_teacher(teacher_id):
     teacher_detail_model.update({'teacherId': ObjectId(teacher['_id'])}, teacher_detail_data)
     return jsonify({'modified_count': result.modified_count}), 200
 
-@swag_from('../../swagger/delete_teacher.yml')
 def delete_teacher(teacher_id):
     # Fetch teacher details
     teacher = teacher_model.find_one({'_id': ObjectId(teacher_id)})
