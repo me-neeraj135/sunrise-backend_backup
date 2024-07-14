@@ -22,5 +22,19 @@ get:
             type: string
           position:
             type: string
+          isActive:
+            type: integer
+          about:
+            type: string
+            example: "Expert in Mathematics"
+          experience:
+            type: string
+            example: "15 years"
+          subject:
+            type: string
+            example: "Chemistry Teacher"
+          duty:
+            type: string
+            example: "The duties of a chemistry teacher include creating lesson plans; preparing and delivering lectures; creating and supervising laboratory activities for students; evaluating student performance; maintaining classroom records; meeting with parents, teachers, and other professionals; and participating in campus events."
     404:
       description: Teacher not found

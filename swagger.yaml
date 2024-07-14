@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
   title: Sunrise API
-  description: API for managing teachers in Sunrise
+  description: API for managing school endpoints in Sunrise
   version: 1.0.0
 host: localhost:5000
 basePath: /api
@@ -13,6 +13,8 @@ paths:
       summary: Create a new teacher
       consumes:
         - application/json
+      produces:
+        - application/json
       parameters:
         - in: body
           name: body
@@ -21,17 +23,39 @@ paths:
             properties:
               name:
                 type: string
+                example: "Nashid Martines"
               age:
                 type: integer
+                example: 40
               gender:
                 type: string
+                example: "Male"
               img:
                 type: string
+                example: "assets/images/our-team/pic1.jpg"
               position:
                 type: string
+                example: "Principal"
+              isActive:
+                type: integer
+                example: 1
+              about:
+                type: string
+                example: "Expert in Mathematics"
+              experience:
+                type: string
+                example: "15 years"
+              subject:
+                type: string
+                example: "Chemistry Teacher"
+              duty:
+                type: string
+                example: "The duties of a chemistry teacher include creating lesson plans; preparing and delivering lectures; creating and supervising laboratory activities for students; evaluating student performance; maintaining classroom records; meeting with parents, teachers, and other professionals; and participating in campus events."
       responses:
         201:
-          description: Teacher created
+          description: Teacher and details saved successfully
+        400:
+          description: Invalid input
     get:
       summary: Get all teachers
       responses:
@@ -54,6 +78,21 @@ paths:
                   type: string
                 position:
                   type: string
+                isActive:
+                  type: integer
+                  example: 1
+                about:
+                  type: string
+                  example: "Expert in Mathematics"
+                experience:
+                  type: string
+                  example: "15 years"
+                subject:
+                  type: string
+                  example: "Chemistry Teacher"
+                duty:
+                  type: string
+                  example: "The duties of a chemistry teacher include creating lesson plans; preparing and delivering lectures; creating and supervising laboratory activities for students; evaluating student performance; maintaining classroom records; meeting with parents, teachers, and other professionals; and participating in campus events."     
   /teachers/{teacher_id}:
     get:
       summary: Get a teacher by ID
@@ -79,6 +118,20 @@ paths:
                 type: string
               position:
                 type: string
+              isActive:
+                type: integer
+              about:
+                type: string
+                example: "Expert in Mathematics"
+              experience:
+                type: string
+                example: "15 years"
+              subject:
+                type: string
+                example: "Chemistry Teacher"
+              duty:
+                type: string
+                example: "The duties of a chemistry teacher include creating lesson plans; preparing and delivering lectures; creating and supervising laboratory activities for students; evaluating student performance; maintaining classroom records; meeting with parents, teachers, and other professionals; and participating in campus events."     
     put:
       summary: Update a teacher by ID
       parameters:
@@ -100,6 +153,20 @@ paths:
                 type: string
               position:
                 type: string
+              isActive:
+                type: integer
+              about:
+                type: string
+                example: "Expert in Mathematics"
+              experience:
+                type: string
+                example: "15 years"
+              subject:
+                type: string
+                example: "Chemistry Teacher"
+              duty:
+                type: string
+                example: "The duties of a chemistry teacher include creating lesson plans; preparing and delivering lectures; creating and supervising laboratory activities for students; evaluating student performance; maintaining classroom records; meeting with parents, teachers, and other professionals; and participating in campus events."
       responses:
         200:
           description: Teacher updated

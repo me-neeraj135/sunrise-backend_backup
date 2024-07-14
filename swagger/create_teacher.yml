@@ -2,6 +2,8 @@ post:
   summary: Create a new teacher
   consumes:
     - application/json
+  produces:
+    - application/json
   parameters:
     - in: body
       name: body
@@ -10,14 +12,36 @@ post:
         properties:
           name:
             type: string
+            example: "Nashid Martines"
           age:
             type: integer
+            example: 40
           gender:
             type: string
+            example: "Male"
           img:
             type: string
+            example: "assets/images/our-team/pic1.jpg"
           position:
             type: string
+            example: "Principal"
+          isActive:
+            type: integer
+            example: 1
+          about:
+            type: string
+            example: "Expert in Mathematics"
+          experience:
+            type: string
+            example: "15 years"
+          subject:
+            type: string
+            example: "Chemistry Teacher"
+          duty:
+            type: string
+            example: "The duties of a chemistry teacher include creating lesson plans; preparing and delivering lectures; creating and supervising laboratory activities for students; evaluating student performance; maintaining classroom records; meeting with parents, teachers, and other professionals; and participating in campus events."
   responses:
     201:
       description: Teacher created
+    400:
+      description: Invalid input
