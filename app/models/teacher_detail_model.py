@@ -1,23 +1,18 @@
 from bson import ObjectId
 
-class TeacherModel:
-    collection_name = 'teacher'
+class TeacherDetailModel:
+    collection_name = 'teacher-detail'
 
     def __init__(self, mongo):
         self.collection = mongo.db[self.collection_name]
 
     def create(self, data):
-        result = self.collection.insert_one(data)
-        return result.inserted_id if result else None
+        return self.collection.insert_one(data).inserted_id
 
     def find(self, query):
-        # Add isActive condition to the query
-        query['isActive'] = 1
         return self.collection.find(query)
 
     def find_one(self, query):
-        # Add isActive condition to the query
-        query['isActive'] = 1
         return self.collection.find_one(query)
 
     def update(self, query, data):
