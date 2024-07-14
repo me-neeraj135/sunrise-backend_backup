@@ -84,6 +84,7 @@ paths:
           description: User deleted successfully
         404:
           description: User not found or delete failed
+
   /teachers:
     post:
       summary: Create a new teacher
@@ -112,6 +113,7 @@ paths:
               $ref: '#/definitions/Teacher'
         404:
           description: No teachers found
+
   /teachers/{teacher_id}:
     get:
       summary: Get a teacher by ID
@@ -160,61 +162,260 @@ paths:
           description: Teacher deleted successfully
         404:
           description: Teacher not found or delete failed
+
+  /menus:
+    post:
+      summary: Create a new menu
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/Menu'
+      responses:
+        201:
+          description: Menu created successfully
+        400:
+          description: Invalid input
+    get:
+      summary: Get all menus
+      responses:
+        200:
+          description: A list of menus
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Menu'
+        404:
+          description: No menus found
+
+  /menus/{menu_id}:
+    get:
+      summary: Get a menu by ID
+      parameters:
+        - in: path
+          name: menu_id
+          type: string
+          required: true
+          description: The ID of the menu
+      responses:
+        200:
+          description: A menu
+          schema:
+            $ref: '#/definitions/Menu'
+        404:
+          description: Menu not found
+    put:
+      summary: Update a menu by ID
+      parameters:
+        - in: path
+          name: menu_id
+          type: string
+          required: true
+          description: The ID of the menu
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/Menu'
+      responses:
+        200:
+          description: Menu updated successfully
+        404:
+          description: Menu not found
+        500:
+          description: Menu update failed
+    delete:
+      summary: Delete a menu by ID
+      parameters:
+        - in: path
+          name: menu_id
+          type: string
+          required: true
+          description: The ID of the menu
+      responses:
+        200:
+          description: Menu deleted successfully
+        404:
+          description: Menu not found or delete failed
+
+  /submenus:
+    post:
+      summary: Create a new submenu
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/Submenu'
+      responses:
+        201:
+          description: Submenu created successfully
+        400:
+          description: Invalid input
+    get:
+      summary: Get all submenus
+      responses:
+        200:
+          description: A list of submenus
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Submenu'
+        404:
+          description: No submenus found
+
+  /submenus/{submenu_id}:
+    get:
+      summary: Get a submenu by ID
+      parameters:
+        - in: path
+          name: submenu_id
+          type: string
+          required: true
+          description: The ID of the submenu
+      responses:
+        200:
+          description: A submenu
+          schema:
+            $ref: '#/definitions/Submenu'
+        404:
+          description: Submenu not found
+    put:
+      summary: Update a submenu by ID
+      parameters:
+        - in: path
+          name: submenu_id
+          type: string
+          required: true
+          description: The ID of the submenu
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/Submenu'
+      responses:
+        200:
+          description: Submenu updated successfully
+        404:
+          description: Submenu not found
+        500:
+          description: Submenu update failed
+    delete:
+      summary: Delete a submenu by ID
+      parameters:
+        - in: path
+          name: submenu_id
+          type: string
+          required: true
+          description: The ID of the submenu
+      responses:
+        200:
+          description: Submenu deleted successfully
+        404:
+          description: Submenu not found or delete failed
+
 definitions:
   User:
     type: object
     properties:
       firstName:
         type: string
-        example: "John"
+        example: John
       lastName:
         type: string
-        example: "Doe"
+        example: Doe
       mobile:
         type: string
-        example: "+1234567890"
+        example: '234567890'
       email:
         type: string
-        example: "john.doe@example.com"
+        example: john.doe@example.com
       password:
         type: string
-        example: "password123"
+        example: password123
       userType:
         type: string
-        example: "admin"
+        example: admin
       IsActive:
         type: integer
         example: 1
+
   Teacher:
     type: object
     properties:
       name:
         type: string
-        example: "Nashid Martines"
+        example: Nashid Martines
       age:
         type: integer
         example: 40
       gender:
         type: string
-        example: "Male"
+        example: Male
       img:
         type: string
-        example: "assets/images/our-team/pic1.jpg"
+        example: assets/images/our-team/pic1.jpg
       position:
         type: string
-        example: "Principal"
+        example: Principal
       isActive:
         type: integer
         example: 1
       about:
         type: string
-        example: "Expert in Mathematics"
+        example: Expert in Mathematics
       experience:
         type: string
-        example: "15 years"
+        example: 15 years
       subject:
         type: string
-        example: "Chemistry Teacher"
+        example: Chemistry Teacher
       duty:
         type: string
-        example: "The duties of a chemistry teacher include creating lesson plans; preparing and delivering lectures; creating and supervising laboratory activities for students; evaluating student performance; maintaining classroom records; meeting with parents, teachers, and other professionals; and participating in campus events."
+        example: The duties of a chemistry teacher include creating lesson plans; preparing and delivering lectures; creating and supervising laboratory activities for students; evaluating student performance; maintaining classroom records; meeting with parents, teachers, and other professionals; and participating in campus events.
+
+  Menu:
+    type: object
+    properties:
+      title:
+        type: string
+        example: About Us
+      menuClass:
+        type: string
+        example: main-menu
+      isActive:
+        type: integer
+        example: 1
+      userId:
+        type: string
+        example: 6693c7b58b3d3bde81ec497a
+      orderBy:
+        type: integer
+        example: 1
+
+  Submenu:
+    type: object
+    properties:
+      menuId:
+        type: string
+        example: 6693cf46d4cc6ec3aa693cb9
+      title:
+        type: string
+        example: About Sunrise
+      route:
+        type: string
+        example: /about-sunrise
+      subMenuClass:
+        type: string
+        example: sub-menu
+      isActive:
+        type: integer
+        example: 1
+      userId:
+        type: string
+        example: 6693c7b58b3d3bde81ec497a
