@@ -85,6 +85,165 @@ paths:
         404:
           description: User not found or delete failed
 
+  # Product paths
+  /products:
+    post:
+      summary: Add a new Product
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/Product'
+      responses:
+        201:
+          description: Product added successfully
+        400:
+          description: Invalid input
+    get:
+      summary: Get all products
+      responses:
+        200:
+          description: A list of all products
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Product'
+        404:
+          description: No product found
+  /products/{product_id}:
+    get:
+      summary: Get a product by ID
+      parameters:
+        - in: path
+          name: product_id
+          type: string
+          required: true
+          description: The ID of the product
+      responses:
+        200:
+          description: A product
+          schema:
+            $ref: '#/definitions/Product'
+        404:
+          description: Product not found
+    put:
+      summary: Update the product by ID
+      parameters:
+        - in: path
+          name: product_id
+          type: string
+          required: true
+          description: The ID of the product
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/Product'
+      responses:
+        200:
+          description: Product updated successfully
+        404:
+          description: Product not found
+        500:
+          description: Product update failed
+    delete:
+      summary: Delete the  product by ID
+      parameters:
+        - in: path
+          name: product_id
+          type: string
+          required: true
+          description: The ID of the product
+      responses:
+        200:
+          description: product deleted successfully
+        404:
+          description: product not found or delete failed
+
+  # Product_Detail
+
+  /productDetail:
+    post:
+      summary: Add a new productDetail
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/ProductDetail'
+      responses:
+        201:
+          description: Product detail added successfully
+        400:
+          description: Invalid input
+    get:
+      summary: Get all products Detail
+      responses:
+        200:
+          description: A list of all products detail
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ProductDetail'
+        404:
+          description: No product found
+  /productDetail/{product_id}:
+    get:
+      summary: Get a product by ID
+      parameters:
+        - in: path
+          name: product_id
+          type: string
+          required: true
+          description: The ID of the product
+      responses:
+        200:
+          description: A product
+          schema:
+            $ref: '#/definitions/ProductDetail'
+        404:
+          description: Product not found
+    put:
+      summary: Update the product by ID
+      parameters:
+        - in: path
+          name: product_id
+          type: string
+          required: true
+          description: The ID of the product
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/ProductDetail'
+      responses:
+        200:
+          description: ProductDetail updated successfully
+        404:
+          description: ProductDetail not found
+        500:
+          description: ProductDetail update failed
+    delete:
+      summary: Delete the  ProductDetail by ID
+      parameters:
+        - in: path
+          name: product_id
+          type: string
+          required: true
+          description: The ID of the ProductDetail
+      responses:
+        200:
+          description: ProductDetail deleted successfully
+        404:
+          description: ProductDetail not found or delete failed
+
+  # ****************************************************
+
   /teachers:
     post:
       summary: Create a new teacher
@@ -319,6 +478,7 @@ paths:
         404:
           description: Submenu not found or delete failed
 
+# Model Details
 definitions:
   User:
     type: object
@@ -419,3 +579,163 @@ definitions:
       userId:
         type: string
         example: 6693c7b58b3d3bde81ec497a
+
+  Product:
+    type: object
+    properties:
+      img:
+        type: string
+        example: https://images.unsplash.com/photo-1721403715005-cd5df8ab90ee?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzNHx8fGVufDB8fHx8fA%3D%3D
+      Title:
+        type: string
+        example: School Bag
+      price:
+        type: string
+        example: $10
+      priceDiscount:
+        type: string
+        example: $5
+      category:
+        type: string
+        example: Bag
+      description:
+        type: string
+        example: A durable and spacious school bag perfect for students.
+
+  
+    type: object
+    properties:
+      productId:
+        type: string
+        example: 1557753
+      currency:
+        type: string
+        example: $10
+      stock:
+        type: string
+        example: 25
+      availability:
+        type: string
+        example: in stock
+      additionalImages:
+        type: array
+        items: []
+
+      video:
+        type: string
+        formate: mp4
+        example: 'assets/videos/product/item1.mp4'
+      specifications:
+        type: object
+        properties:
+          dimensions:
+            type: string
+            example: 40*30*15
+          material:
+            type: string
+            example: Polyester
+          weight:
+            type: string
+            example: 0.8kg
+
+      features:
+        type: array
+        items: []
+
+      color:
+        type: string
+        example: red,blue,green
+      size:
+        type: array
+        example: ['S', 'M', 'L']
+        items: []
+      rating:
+        type: string
+        example: 4.5
+      shipping_Cost:
+        type: string
+        example: $5
+      deliveryTime:
+        type: string
+        example: 3-5 business days
+      returnPolicy:
+        type: string
+        example: 30-day return policy
+      vendorId:
+        type: string
+        example: 501
+      vendorName:
+        type: string
+        example: Sunrise School Supplies Co.
+      vendorContact:
+        type: string
+        example: support@schoolsupplies.com
+  
+  ProductDetail:
+  type: object
+  properties:
+    productId:
+      type: string
+      example: "1557753"
+    currency:
+      type: string
+      example: "$10"
+    stock:
+      type: string
+      example: "25"
+    availability:
+      type: string
+      example: "in stock"
+    additionalImages:
+      type: array
+      items:
+        type: string
+    video:
+      type: string
+      format: "mp4"
+      example: "assets/videos/product/item1.mp4"
+    specifications:
+      type: object
+      properties:
+        dimensions:
+          type: string
+          example: "40*30*15"
+        material:
+          type: string
+          example: "Polyester"
+        weight:
+          type: string
+          example: "0.8kg"
+    features:
+      type: array
+      items:
+        type: string
+    color:
+      type: string
+      example: "red,blue,green"
+    size:
+      type: array
+      items:
+        type: string
+      example: ["S", "M", "L"]
+    rating:
+      type: string
+      example: "4.5"
+    shipping_Cost:
+      type: string
+      example: "$5"
+    deliveryTime:
+      type: string
+      example: "3-5 business days"
+    returnPolicy:
+      type: string
+      example: "30-day return policy"
+    vendorId:
+      type: string
+      example: "501"
+    vendorName:
+      type: string
+      example: "Sunrise School Supplies Co."
+    vendorContact:
+      type: string
+      example: "support@schoolsupplies.com"
