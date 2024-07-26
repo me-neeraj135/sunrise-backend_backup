@@ -164,7 +164,6 @@ paths:
           description: product not found or delete failed
 
   # Product_Detail
-
   /productDetail:
     post:
       summary: Add a new productDetail
@@ -242,8 +241,7 @@ paths:
         404:
           description: ProductDetail not found or delete failed
 
-  # ****************************************************
-
+  # teacher routes
   /teachers:
     post:
       summary: Create a new teacher
@@ -477,8 +475,701 @@ paths:
           description: Submenu deleted successfully
         404:
           description: Submenu not found or delete failed
+  # Class
+  /classes:
+    post:
+      summary: 'Create a new class'
+      description: 'Creates a new class with the provided information.'
+      consumes:
+        - 'application/json'
+      produces:
+        - 'application/json'
+      parameters:
+        - in: 'body'
+          name: 'body'
+          description: 'Class object that needs to be added'
+          required: true
+          schema:
+            $ref: '#/definitions/Class'
 
-# Model Details
+      responses:
+        201:
+          description: 'Class created successfully'
+
+    get:
+      summary: 'Get list of all classes'
+      description: 'Returns a list of all classes.'
+      produces:
+        - 'application/json'
+      responses:
+        200:
+          description: 'List of classes'
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Class'
+
+  /classes/{class_id}:
+    get:
+      summary: 'Get class by ID'
+      description: 'Returns a class based on the ID provided.'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'class_id'
+          in: 'path'
+          required: true
+          type: string
+      responses:
+        200:
+          description: 'Class retrieved successfully'
+          schema:
+            type: object
+            $ref: '#/definitions/Class'
+        404:
+          description: 'Class not found'
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                example: 'Class not found'
+
+    put:
+      summary: 'Update class by ID'
+      description: 'Updates a class based on the ID provided.'
+      consumes:
+        - 'application/json'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'class_id'
+          in: 'path'
+          required: true
+          type: string
+        - in: 'body'
+          name: 'body'
+          description: 'Class object with updated information'
+          required: true
+          schema:
+            type: object
+            $ref: '#/definitions/Class'
+
+      responses:
+        200:
+          description: 'Class updated successfully'
+          schema:
+            type: object
+            properties:
+              className:
+                type: string
+              classUrl:
+                type: string
+              aboutClass:
+                type: string
+              students:
+                type: string
+        404:
+          description: 'Class not found'
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                example: 'Class not found'
+
+    delete:
+      summary: 'Delete class by ID'
+      description: 'Deletes a class based on the ID provided.'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'class_id'
+          in: 'path'
+          required: true
+          type: string
+      responses:
+        200:
+          description: 'Class deleted successfully'
+          schema:
+            type: object
+
+            properties:
+              message:
+                type: string
+                example: 'Class deleted'
+        404:
+          description: 'Class not found'
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                example: 'Class not found'
+
+  # Class-Detail
+  /classDetail:
+    post:
+      summary: 'Create a new classDetail'
+      description: 'Creates a new classDetail with the provided information.'
+      consumes:
+        - 'application/json'
+      produces:
+        - 'application/json'
+      parameters:
+        - in: 'body'
+          name: 'body'
+          description: 'classDetail object that needs to be added'
+          required: true
+          schema:
+            type: object
+            $ref: '#/definitions/ClassDetail'
+
+      responses:
+        201:
+          description: 'Class created successfully'
+          schema:
+            type: object
+            properties:
+              className:
+                type: string
+
+              aboutClass:
+                type: string
+              subjects:
+                type: object
+
+    get:
+      summary: 'Get list of all classDetail'
+      description: 'Returns a list of all classDetail.'
+
+      produces:
+        - 'application/json'
+
+      responses:
+        200:
+          description: 'List of classDetail'
+          schema:
+            type: array
+            items:
+              type: object
+              $ref: '#/definitions/ClassDetail'
+
+              # properties:
+              #   className:
+              #     type: string
+              #     example: 'KG'
+              #   aboutClass:
+              #     type: string
+              #     example: 'Kindergarten or KG focuses on kids of 4 to 6 years or above. The second most class that introduces academics to the kids.'
+              #   subjects:
+              #     type: object
+              #     properties:
+              #       English:
+              #         type: array
+              #         items:
+              #           type: string
+              #         example:
+              #           [
+              #             'pre-writing strokes',
+              #             'Capital letter A-Z',
+              #             'Sentence Structure',
+              #             'Vocabulary',
+              #           ]
+              #       Mathematics:
+              #         type: array
+              #         items:
+              #           type: string
+              #         example: ['Pre-math concepts', 'Numbers (1-20)', 'Shapes']
+              #       General_Awareness:
+              #         type: array
+              #         items:
+              #           type: string
+              #         example:
+              #           [
+              #             'Myself',
+              #             'Seasons',
+              #             'Transport',
+              #             'Fruits',
+              #             'Animals',
+              #             'Vegetables',
+              #           ]
+              #       Extracurricular_Activities:
+              #         type: array
+              #         items:
+              #           type: string
+              #         example:
+              #           ['Picture reading', 'Rhymes', 'Celebrating fruit days']
+
+  /classDetail/{classDetail_id}:
+    get:
+      summary: 'Get classDetail by ID'
+      description: 'Returns a classDetail based on the ID provided.'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'classDetail_id'    
+          in: 'path'
+          required: true
+          type: string
+      responses:
+        200:
+          description: 'classDetail retrieved successfully'
+          schema:
+            type: object
+            $ref: '#/definitions/ClassDetail'
+
+            
+        200:
+          description: 'List of classDetail'
+          schema:
+            type: array
+            items:
+              type: object
+              $ref: '#/definitions/ClassDetail'
+
+       
+        404:
+          description: 'Class-Detail not found'
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                example: 'Class-Detail not found'
+    put:
+      summary: 'Update class-Detail by ID'
+      description: 'Updates a class-Detail based on the ID provided.'
+      consumes:
+        - 'application/json'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'classDetail_id'
+          in: 'path'
+          required: true
+          type: string
+        - in: 'body'
+          name: 'body'
+          description: 'class-Detail object with updated information'
+          required: true
+          schema:
+            type: object
+            $ref: '#/definitions/ClassDetail'
+
+
+      responses:
+        200:
+          description: 'List of classDetail'
+          schema:
+            type: array
+            items:
+              type: object
+              $ref: '#/definitions/ClassDetail'
+
+          
+        404:
+          description: 'class-Detail not found'
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                example: 'class-Detail not found'
+    delete:
+      summary: 'Delete class-Detail by ID'
+      description: 'Deletes a class-Detail based on the ID provided.'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'classDetail_id'
+          in: 'path'
+          required: true
+          type: string
+      responses:
+        200:
+          description: 'class-Detail deleted successfully'
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: 'class-Detail object deleted'
+        404:
+          description: 'class-Detail not found'
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                example: 'class-Detail not found'
+
+
+# Events
+  /events:
+    post:
+      summary: "Create a new event "
+      description: "Creates a new event  with the provided information."
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "Event  object that needs to be added"
+          required: true
+          schema:
+            $ref: "#/definitions/Event"
+      responses:
+        201:
+          description: "Event  created successfully"
+          schema:
+            $ref: "#/definitions/Event"
+
+    get:
+      summary: "Get list of all event "
+      description: "Returns a list of all event ."
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "List of event "
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Event"
+
+  /events/{eventId}:
+    get:
+      summary: "Get event  by ID"
+      description: "Returns an event  based on the ID provided."
+      produces:
+        - "application/json"
+      parameters:
+        - name: "eventId"
+          in: "path"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Event  retrieved successfully"
+          schema:
+            $ref: "#/definitions/Event"
+        404:
+          description: "Event  not found"
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                example: "Event  not found"
+
+    put:
+      summary: "Update event  by ID"
+      description: "Updates an event  based on the ID provided."
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "eventId"
+          in: "path"
+          required: true
+          type: string
+        - in: "body"
+          name: "body"
+          description: "Event  object with updated information"
+          required: true
+          schema:
+            $ref: "#/definitions/Event"
+      responses:
+        200:
+          description: "Event  updated successfully"
+          schema:
+            $ref: "#/definitions/Event"
+        404:
+          description: "Event  not found"
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                example: "Event  not found"
+
+    delete:
+      summary: "Delete event  by ID"
+      description: "Deletes an event  based on the ID provided."
+      produces:
+        - "application/json"
+      parameters:
+        - name: "eventId"
+          in: "path"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Event  deleted successfully"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Event  deleted"
+        404:
+          description: "Event  not found"
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                example: "Event detail not found"
+
+# EventContent 
+  /eventContents:
+    post:
+      summary: "Create a new event content"
+      description: "Creates a new event content with the provided information."
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "Event content object that needs to be added"
+          required: true
+          schema:
+            $ref: "#/definitions/EventContent"
+      responses:
+        201:
+          description: "Event content created successfully"
+          schema:
+            $ref: "#/definitions/EventContent"
+
+    get:
+      summary: "Get list of all event contents"
+      description: "Returns a list of all event contents."
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "List of event contents"
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/EventContent"
+
+  /eventContents/{eventContentId}:
+    get:
+      summary: "Get event content by ID"
+      description: "Returns an event content based on the ID provided."
+      produces:
+        - "application/json"
+      parameters:
+        - name: "eventContentId"
+          in: "path"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Event content retrieved successfully"
+          schema:
+            $ref: "#/definitions/EventContent"
+        404:
+          description: "Event content not found"
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                example: "Event content not found"
+
+    put:
+      summary: "Update event content by ID"
+      description: "Updates an event content based on the ID provided."
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "eventContentId"
+          in: "path"
+          required: true
+          type: string
+        - in: "body"
+          name: "body"
+          description: "Event content object with updated information"
+          required: true
+          schema:
+            $ref: "#/definitions/EventContent"
+      responses:
+        200:
+          description: "Event content updated successfully"
+          schema:
+            $ref: "#/definitions/EventContent"
+        404:
+          description: "Event content not found"
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                example: "Event content not found"
+
+    delete:
+      summary: "Delete event content by ID"
+      description: "Deletes an event content based on the ID provided."
+      produces:
+        - "application/json"
+      parameters:
+        - name: "eventContentId"
+          in: "path"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Event content deleted successfully"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Event content deleted"
+        404:
+          description: "Event content not found"
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                example: "Event content not found"
+
+# EventDetail
+  /eventDetails:
+    post:
+      summary: "Create a new event detail"
+      description: "Creates a new event detail with the provided information."
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "Event detail object that needs to be added"
+          required: true
+          schema:
+            $ref: "#/definitions/EventDetail"
+      responses:
+        201:
+          description: "Event detail created successfully"
+          schema:
+            $ref: "#/definitions/EventDetail"
+
+    get:
+      summary: "Get list of all event details"
+      description: "Returns a list of all event details."
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "List of event details"
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/EventDetail"
+
+  /eventDetails/{eventDetailId}:
+    get:
+      summary: "Get event detail by ID"
+      description: "Returns an event detail based on the ID provided."
+      produces:
+        - "application/json"
+      parameters:
+        - name: "eventDetailId"
+          in: "path"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Event detail retrieved successfully"
+          schema:
+            $ref: "#/definitions/EventDetail"
+        404:
+          description: "Event detail not found"
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                example: "Event detail not found"
+
+    put:
+      summary: "Update event detail by ID"
+      description: "Updates an event detail based on the ID provided."
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "eventDetailId"
+          in: "path"
+          required: true
+          type: string
+        - in: "body"
+          name: "body"
+          description: "Event detail object with updated information"
+          required: true
+          schema:
+            $ref: "#/definitions/EventDetail"
+      responses:
+        200:
+          description: "Event detail updated successfully"
+          schema:
+            $ref: "#/definitions/EventDetail"
+        404:
+          description: "Event detail not found"
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                example: "Event detail not found"
+
+    delete:
+      summary: "Delete event detail by ID"
+      description: "Deletes an event detail based on the ID provided."
+      produces:
+        - "application/json"
+      parameters:
+        - name: "eventDetailId"
+          in: "path"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Event detail deleted successfully"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Event detail deleted"
+        404:
+          description: "Event detail not found"
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                example: "Event detail not found"
+
+
+
+
+
+####### Model definitions
 definitions:
   User:
     type: object
@@ -505,6 +1196,7 @@ definitions:
         type: integer
         example: 1
 
+  # Teacher
   Teacher:
     type: object
     properties:
@@ -539,6 +1231,7 @@ definitions:
         type: string
         example: The duties of a chemistry teacher include creating lesson plans; preparing and delivering lectures; creating and supervising laboratory activities for students; evaluating student performance; maintaining classroom records; meeting with parents, teachers, and other professionals; and participating in campus events.
 
+  # Menu
   Menu:
     type: object
     properties:
@@ -558,6 +1251,7 @@ definitions:
         type: integer
         example: 1
 
+  # Submenu
   Submenu:
     type: object
     properties:
@@ -580,6 +1274,7 @@ definitions:
         type: string
         example: 6693c7b58b3d3bde81ec497a
 
+  # Product
   Product:
     type: object
     properties:
@@ -602,140 +1297,209 @@ definitions:
         type: string
         example: A durable and spacious school bag perfect for students.
 
-  
+  # Product Detail
+  ProductDetail:
     type: object
     properties:
       productId:
         type: string
-        example: 1557753
+        example: '1557753'
       currency:
         type: string
-        example: $10
+        example: '$10'
       stock:
         type: string
-        example: 25
+        example: '25'
       availability:
         type: string
-        example: in stock
+        example: 'in stock'
       additionalImages:
         type: array
-        items: []
-
+        items:
+          type: string
       video:
         type: string
-        formate: mp4
+        format: 'mp4'
         example: 'assets/videos/product/item1.mp4'
       specifications:
         type: object
         properties:
           dimensions:
             type: string
-            example: 40*30*15
+            example: '40*30*15'
           material:
             type: string
-            example: Polyester
+            example: 'Polyester'
           weight:
             type: string
-            example: 0.8kg
-
+            example: '0.8kg'
       features:
         type: array
-        items: []
-
+        items:
+          type: string
       color:
         type: string
-        example: red,blue,green
+        example: 'red,blue,green'
       size:
         type: array
+        items:
+          type: string
         example: ['S', 'M', 'L']
-        items: []
       rating:
         type: string
-        example: 4.5
+        example: '4.5'
       shipping_Cost:
         type: string
-        example: $5
+        example: '$5'
       deliveryTime:
         type: string
-        example: 3-5 business days
+        example: '3-5 business days'
       returnPolicy:
         type: string
-        example: 30-day return policy
+        example: '30-day return policy'
       vendorId:
         type: string
-        example: 501
+        example: '501'
       vendorName:
         type: string
-        example: Sunrise School Supplies Co.
+        example: 'Sunrise School Supplies Co.'
       vendorContact:
         type: string
-        example: support@schoolsupplies.com
-  
-  ProductDetail:
-  type: object
-  properties:
-    productId:
-      type: string
-      example: "1557753"
-    currency:
-      type: string
-      example: "$10"
-    stock:
-      type: string
-      example: "25"
-    availability:
-      type: string
-      example: "in stock"
-    additionalImages:
-      type: array
-      items:
+        example: 'support@schoolsupplies.com'
+
+  # Event
+  Event:
+    type: object
+    properties:
+      title:
         type: string
-    video:
-      type: string
-      format: "mp4"
-      example: "assets/videos/product/item1.mp4"
-    specifications:
-      type: object
-      properties:
-        dimensions:
-          type: string
-          example: "40*30*15"
-        material:
-          type: string
-          example: "Polyester"
-        weight:
-          type: string
-          example: "0.8kg"
-    features:
-      type: array
-      items:
+        example: 'Music Festival'
+      location:
         type: string
-    color:
-      type: string
-      example: "red,blue,green"
-    size:
-      type: array
-      items:
+        example: 'Central Park'
+      img:
         type: string
-      example: ["S", "M", "L"]
-    rating:
-      type: string
-      example: "4.5"
-    shipping_Cost:
-      type: string
-      example: "$5"
-    deliveryTime:
-      type: string
-      example: "3-5 business days"
-    returnPolicy:
-      type: string
-      example: "30-day return policy"
-    vendorId:
-      type: string
-      example: "501"
-    vendorName:
-      type: string
-      example: "Sunrise School Supplies Co."
-    vendorContact:
-      type: string
-      example: "support@schoolsupplies.com"
+        example: 'assets/images/events/grid/pic1.jpg'
+      startTime:
+        type: string
+        example: '18:00'
+      endTime:
+        type: string
+        example: '22:00'
+      startDate:
+        type: string
+        example: '15 Jun'
+      endDate:
+        type: string
+        example: '15 Jun'
+      year:
+        type: string
+        example: '2024'
+      teacherId:
+        type: integer
+        example: 1
+
+  # Event Detail
+  EventDetail:
+    type: object
+    properties:
+      eventId:
+        type: integer
+        example: 1
+      about:
+        type: string
+        example: 'Experience the best of live music in the heart of the city at Central Park.'
+      highlight:
+        type: string
+        example: 'Live performances by top artists and bands from around the world.'
+
+  # Event Content
+  EventContent:
+    type: object
+    properties:
+      eventId:
+        type: integer
+        example: 1
+      label:
+        type: string
+        example: 'But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and'
+
+  # Class
+  Class:
+    type: object
+    properties:
+      className:
+        type: string
+        example: 'KG'
+      classUrl:
+        type: string
+        example: 'https://plus.unsplash.com/premium_photo-1663088989178-a570bdb3153c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80'
+      aboutClass:
+        type: string
+        example: 'Kindergarten or KG focuses on kids of 4 to 6 years or above. The second most class that introduces academics to the kids.'
+      students:
+        type: string
+        example: '50'
+
+  # Class Detail
+  ClassDetail:
+    type: object
+    properties:
+      classId:
+        type: integer
+        example: 1
+      className:
+        type: string
+        example: 'KG'
+      aboutClass:
+        type: string
+        example: 'Kindergarten or KG focuses on kids of 4 to 6 years or above. The second most class that introduces academics to the kids.'
+      subjects:
+        type: object
+        properties:
+          English:
+            type: array
+            items:
+              type: string
+            example:
+              [
+                'pre-writing strokes',
+                'Capital letter A-Z',
+                'Sentence Structure',
+                'Vocabulary',
+              ]
+          Mathematics:
+            type: array
+            items:
+              type: string
+            example: ['Pre-math concepts', 'Numbers (1-20)', 'Shapes', 'Colors']
+          General_Awareness:
+            type: array
+            items:
+              type: string
+            example:
+              [
+                'Myself',
+                'Seasons',
+                'Transport',
+                'Fruits',
+                'Animals',
+                'Vegetables',
+              ]
+          Extracurricular_Activities:
+            type: array
+            items:
+              type: string
+            example:
+              [
+                'Picture reading',
+                'Rhymes',
+                'Celebrating fruit days',
+                'Planting and looking after seeds in the garden',
+                'Visit the garden',
+                'Displaying family pictures in the class',
+                'Welcome cards',
+                'Activities related to various festivals',
+                'Collage making',
+                'Health and hygiene week',
+              ]
