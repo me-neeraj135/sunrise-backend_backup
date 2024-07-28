@@ -79,13 +79,14 @@ def create_submenu():
         "route": data["route"],
         "subMenuClass": data["subMenuClass"],
         "isActive": data.get("isActive", 1),
-        "userId": data["userId"]
+        "userId": data["userId"],
+        "subSubMenu": data.get("subSubMenu", [])
     }
     submenu_id = submenu_model.create(submenu_data)
     return jsonify({"message": "Submenu created successfully", "submenu_id": str(submenu_id)}), 201
 
 def get_submenus():
-    submenus = submenu_model.find({})
+    submenus = list(submenu_model.find({}))
     if not submenus:
         return jsonify({'message': 'No submenus found'}), 404
     
@@ -114,9 +115,10 @@ def update_submenu(submenu_id):
         "route": data["route"],
         "subMenuClass": data["subMenuClass"],
         "isActive": data.get("isActive", 1),
-        "userId": data["userId"]
+        "userId": data["userId"],
+        "subSubMenu": data.get("subSubMenu", [])
     }
-    result = submenu_model.update({'_id': ObjectId(submenu_id)}, submenu_data)
+    result = submenu_model.update({'_id': ObjectId(submenu_id)}, {"$set": submenu_data})
     
     if result.modified_count == 0:
         return jsonify({'error': 'Submenu update failed'}), 500
