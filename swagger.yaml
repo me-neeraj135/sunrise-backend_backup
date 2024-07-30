@@ -1254,25 +1254,60 @@ definitions:
   # Submenu
   Submenu:
     type: object
+    required:
+      - menuId
+      - title
+      - subMenuClass
+      - isActive
+      - userId
     properties:
       menuId:
         type: string
-        example: 6693cf46d4cc6ec3aa693cb9
+        description: The ID of the menu this submenu belongs to
       title:
         type: string
-        example: About Sunrise
+        description: The title of the submenu
       route:
         type: string
-        example: /about-sunrise
+        description: The route of the submenu
       subMenuClass:
         type: string
-        example: sub-menu
+        description: The CSS class of the submenu
       isActive:
-        type: integer
-        example: 1
+        type: boolean
+        description: The status of the submenu
       userId:
         type: string
-        example: 6693c7b58b3d3bde81ec497a
+        description: The ID of the user who created the submenu
+      subSubMenu:
+        type: array
+        description: The sub-submenus under this submenu
+        items:
+          $ref: '#/definitions/SubSubmenu'
+
+  SubSubmenu:
+    type: object
+    required:
+      - title
+      - subSubMenuClass
+      - isActive
+      - userId
+    properties:
+      title:
+        type: string
+        description: The title of the sub-submenu
+      route:
+        type: string
+        description: The route of the sub-submenu
+      subSubMenuClass:
+        type: string
+        description: The CSS class of the sub-submenu
+      isActive:
+        type: boolean
+        description: The status of the sub-submenu
+      userId:
+        type: integer
+        description: The ID of the user who created the sub-submenu
 
   # Product
   Product:

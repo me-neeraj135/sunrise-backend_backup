@@ -1,0 +1,172 @@
+[{
+  "_id": {
+    "$oid": "6693d023d9a194e7848543ff"
+  },
+  "menuId": "6693cf46d4cc6ec3aa693cb9",
+  "title": "About Sunrise",
+  "route": "/about-sunrise",
+  "subMenuClass": "sub-menu",
+  "isActive": 1,
+  "userId": "6693c7b58b3d3bde81ec497a"
+},
+{
+  "_id": {
+    "$oid": "66a5d739e5d656345c0862c1"
+  },
+  "menuId": "66a5d5b6e5d656345c0862bf",
+  "title": "Add New Teacher",
+  "route": "/addTeacher",
+  "subMenuClass": "sub-menu",
+  "isActive": 1,
+  "userId": "66a5d530e5d656345c0862be"
+},
+{
+  "_id": {
+    "$oid": "66a5d778e5d656345c0862c2"
+  },
+  "menuId": "66a5d5b6e5d656345c0862bf",
+  "title": "Add New Class",
+  "route": "/addClass",
+  "subMenuClass": "sub-menu",
+  "isActive": 1,
+  "userId": "66a5d530e5d656345c0862be"
+},
+{
+  "_id": {
+    "$oid": "66a5d79be5d656345c0862c3"
+  },
+  "menuId": "66a5d5b6e5d656345c0862bf",
+  "title": "Add New Event",
+  "route": "/addEvent",
+  "subMenuClass": "sub-menu",
+  "isActive": 1,
+  "userId": "66a5d530e5d656345c0862be"
+},
+{
+  "_id": {
+    "$oid": "66a5d804e5d656345c0862c4"
+  },
+  "menuId": "66a5d5b6e5d656345c0862bf",
+  "title": "Add New Product",
+  "route": "/addProduct",
+  "subMenuClass": "sub-menu",
+  "isActive": 1,
+  "userId": "66a5d530e5d656345c0862be"
+},
+{
+  "_id": {
+    "$oid": "66a67e0218ba0bd63bb3fd72"
+  },
+  "menuId": "66a5cf82e5d656345c0862bc",
+  "title": "Explore",
+  "route": "",
+  "subMenuClass": "mega-menu",
+  "isActive": true,
+  "userId": "6693c7b58b3d3bde81ec497a",
+  "subSubMenu": [
+    {
+      "isActive": true,
+      "route": "/teacher",
+      "subSubMenuClass": "sub-menu",
+      "title": "Teachers",
+      "userId": "6693c7b58b3d3bde81ec497a"
+    },
+    {
+      "isActive": true,
+      "route": "/event",
+      "subSubMenuClass": "sub-menu",
+      "title": "Events",
+      "userId": "6693c7b58b3d3bde81ec497a"
+    },
+    {
+      "isActive": true,
+      "route": "/services-1",
+      "subSubMenuClass": "sub-menu",
+      "title": "Services",
+      "userId": "6693c7b58b3d3bde81ec497a"
+    },
+    {
+      "isActive": true,
+      "route": "/classes",
+      "subSubMenuClass": "sub-menu",
+      "title": "Classes",
+      "userId": "6693c7b58b3d3bde81ec497a"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66a67ed918ba0bd63bb3fd73"
+  },
+  "menuId": "66a5cf82e5d656345c0862bc",
+  "title": "Gallery",
+  "route": "",
+  "subMenuClass": "mega-menu",
+  "isActive": true,
+  "userId": "6693c7b58b3d3bde81ec497a",
+  "subSubMenu": [
+    {
+      "isActive": true,
+      "route": "/gallery-grid-3",
+      "subSubMenuClass": "sub-menu",
+      "title": "Gallery",
+      "userId": "6693c7b58b3d3bde81ec497a"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66a67fdd18ba0bd63bb3fd74"
+  },
+  "menuId": "66a5cf82e5d656345c0862bc",
+  "title": "Support",
+  "route": "",
+  "subMenuClass": "mega-menu",
+  "isActive": true,
+  "userId": "6693c7b58b3d3bde81ec497a",
+  "subSubMenu": [
+    {
+      "isActive": true,
+      "route": "/faq-1",
+      "subSubMenuClass": "sub-menu",
+      "title": "FAQ",
+      "userId": "6693c7b58b3d3bde81ec497a"
+    },
+    {
+      "isActive": true,
+      "route": "/help-desk",
+      "subSubMenuClass": "sub-menu",
+      "title": "Help Desk",
+      "userId": "6693c7b58b3d3bde81ec497a"
+    },
+    {
+      "isActive": true,
+      "route": "/privacy-policy",
+      "subSubMenuClass": "sub-menu",
+      "title": "Privacy Policy",
+      "userId": "6693c7b58b3d3bde81ec497a"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66a6806c18ba0bd63bb3fd75"
+  },
+  "menuId": "66a5cfaee5d656345c0862bd",
+  "title": "Products",
+  "route": "/product",
+  "subMenuClass": "sub-menu",
+  "isActive": true,
+  "userId": "6693c7b58b3d3bde81ec497a"
+},
+{
+  "_id": {
+    "$oid": "66a681d618ba0bd63bb3fd77"
+  },
+  "menuId": "6693cf46d4cc6ec3aa693cb9",
+  "title": "Principal's Message",
+  "route": "/principal-message",
+  "subMenuClass": "sub-menu",
+  "isActive": true,
+  "userId": "6693c7b58b3d3bde81ec497a"
+}]

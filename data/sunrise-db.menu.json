@@ -1,0 +1,50 @@
+[{
+  "_id": {
+    "$oid": "6693cf46d4cc6ec3aa693cb9"
+  },
+  "title": "About Us",
+  "menuClass": "main-menu",
+  "isActive": 1,
+  "userId": "6693c7b58b3d3bde81ec497a",
+  "orderBy": 1
+},
+{
+  "_id": {
+    "$oid": "66a5cf82e5d656345c0862bc"
+  },
+  "title": "Academics",
+  "menuClass": "has-mega-menu",
+  "isActive": 1,
+  "userId": "6693c7b58b3d3bde81ec497a",
+  "orderBy": 2
+},
+{
+  "_id": {
+    "$oid": "66a5cfaee5d656345c0862bd"
+  },
+  "title": "Inventory",
+  "menuClass": "main-menu",
+  "isActive": 1,
+  "userId": "6693c7b58b3d3bde81ec497a",
+  "orderBy": 3
+},
+{
+  "_id": {
+    "$oid": "66a5d5b6e5d656345c0862bf"
+  },
+  "title": "Add",
+  "menuClass": "main-menu",
+  "isActive": 1,
+  "userId": "66a5d530e5d656345c0862be",
+  "orderBy": 1
+},
+{
+  "_id": {
+    "$oid": "66a5d5d0e5d656345c0862c0"
+  },
+  "title": "Delete",
+  "menuClass": "main-menu",
+  "isActive": 1,
+  "userId": "66a5d530e5d656345c0862be",
+  "orderBy": 1
+}]

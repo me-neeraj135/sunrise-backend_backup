@@ -1,0 +1,60 @@
+[{
+  "_id": {
+    "$oid": "6693d332d9a194e784854401"
+  },
+  "teacherId": {
+    "$oid": "6693d332d9a194e784854400"
+  },
+  "about": "Expert in Mathematics",
+  "experience": "15 years",
+  "subject": "Chemistry Teacher",
+  "duty": "The duties of a chemistry teacher include creating lesson plans; preparing and delivering lectures; creating and supervising laboratory activities for students; evaluating student performance; maintaining classroom records; meeting with parents, teachers, and other professionals; and participating in campus events."
+},
+{
+  "_id": {
+    "$oid": "66a654f6e5d656345c0862c8"
+  },
+  "teacherId": {
+    "$oid": "66a654f3e5d656345c0862c7"
+  },
+  "about": "asdfsda",
+  "experience": "11",
+  "subject": "Math",
+  "duty": "dfsdfs"
+},
+{
+  "_id": {
+    "$oid": "66a65aa3e5d656345c0862ca"
+  },
+  "teacherId": {
+    "$oid": "66a65aa3e5d656345c0862c9"
+  },
+  "about": "fsfsdfs",
+  "experience": "1",
+  "subject": "English",
+  "duty": "sdasfasd"
+},
+{
+  "_id": {
+    "$oid": "66a65c81e5d656345c0862cc"
+  },
+  "teacherId": {
+    "$oid": "66a65c81e5d656345c0862cb"
+  },
+  "about": "She is good in English",
+  "experience": "1",
+  "subject": "English",
+  "duty": "She is good in English"
+},
+{
+  "_id": {
+    "$oid": "66a65de4e5d656345c0862ce"
+  },
+  "teacherId": {
+    "$oid": "66a65de4e5d656345c0862cd"
+  },
+  "about": "sdfsdfs",
+  "experience": "1",
+  "subject": "English",
+  "duty": "dfadasfa"
+}]
