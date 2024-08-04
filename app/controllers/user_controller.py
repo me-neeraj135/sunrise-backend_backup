@@ -1,4 +1,4 @@
-from flask import request, jsonify
+from flask import request, jsonify, current_app
 from bson import ObjectId
 from flasgger import swag_from
 from app.models.user_model import UserModel
@@ -8,12 +8,17 @@ user_model = UserModel(mongo)
 
 def create_user():
     data = request.json
+    # Get bcrypt from the app context
+    bcrypt = current_app.bcrypt
+    # Hash the password
+    password = data["password"]
+    hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
     user_data = {
         "firstName": data["firstName"],
         "lastName": data["lastName"],
         "mobile": data["mobile"],
         "email": data["email"],
-        "password": data["password"],
+        "password": hashed_password,
         "userType": data["userType"],
         "IsActive": 1
     }
@@ -40,6 +45,8 @@ def get_user(user_id):
 
 def update_user(user_id):
     data = request.json
+    # Get bcrypt from the app context
+    bcrypt = current_app.bcrypt
     user = user_model.find_one({'_id': ObjectId(user_id)})
     if not user:
         return jsonify({'error': 'User not found'}), 404
@@ -49,7 +56,7 @@ def update_user(user_id):
         "lastName": data["lastName"],
         "mobile": data["mobile"],
         "email": data["email"],
-        "password": data["password"],
+        "password": bcrypt.generate_password_hash(data["password"]).decode('utf-8') if "password" in data else user["password"],  # Hash password if provided
         "userType": data["userType"],
         "IsActive": data.get("IsActive", 1)
     }
