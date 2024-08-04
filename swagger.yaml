@@ -475,6 +475,42 @@ paths:
           description: Submenu deleted successfully
         404:
           description: Submenu not found or delete failed
+  /login:
+    post:
+    summary: User login
+    description: Authenticates a user and returns a JWT token.
+    parameters:
+      - in: body
+        name: body
+        required: true
+        description: User login credentials
+        schema:
+          type: object
+          required:
+            - email
+            - password
+          properties:
+            email:
+              type: string
+              format: email
+              example: "user@example.com"
+            password:
+              type: string
+              format: password
+              example: "password123"
+    responses:
+      200:
+        description: JWT token
+        schema:
+          type: object
+          properties:
+            access_token:
+              type: string
+              example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+      401:
+        description: Invalid email or password
+      500:
+        description: Internal server error
   # Class
   /classes:
     post:
