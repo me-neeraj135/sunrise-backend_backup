@@ -1,17 +1,5 @@
 [{
   "_id": {
-    "$oid": "6693d332d9a194e784854401"
-  },
-  "teacherId": {
-    "$oid": "6693d332d9a194e784854400"
-  },
-  "about": "Expert in Mathematics",
-  "experience": "15 years",
-  "subject": "Chemistry Teacher",
-  "duty": "The duties of a chemistry teacher include creating lesson plans; preparing and delivering lectures; creating and supervising laboratory activities for students; evaluating student performance; maintaining classroom records; meeting with parents, teachers, and other professionals; and participating in campus events."
-},
-{
-  "_id": {
     "$oid": "66a654f6e5d656345c0862c8"
   },
   "teacherId": {
@@ -57,4 +45,16 @@
   "experience": "1",
   "subject": "English",
   "duty": "dfadasfa"
+},
+{
+  "_id": {
+    "$oid": "66a73e3507ac6665c9f3b168"
+  },
+  "teacherId": {
+    "$oid": "66a73e3507ac6665c9f3b167"
+  },
+  "about": "sdfsdfsd",
+  "experience": "2",
+  "subject": "Computer",
+  "duty": "sdfsdfs"
 }]
