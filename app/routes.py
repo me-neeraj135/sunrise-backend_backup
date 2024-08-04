@@ -5,15 +5,12 @@ from app.controllers.user_controller import create_user, get_users, get_user, up
 from app.controllers.menu_controller import create_menu, get_menu, get_menus, update_menu, delete_menu, create_submenu, get_submenu, get_submenus, update_submenu, delete_submenu
 from app.controllers.product_controller import create_product ,get_products,get_product,update_product,delete_product
 from app.controllers.productDetail_controller import create_productDetail,get_productsDetail,get_productDetail,update_productDetail,delete_productDetail
-
 from app.controllers.class_controller import create_class ,get_classes,get_class,update_class,delete_class
 from app.controllers.classDetail_controller import create_classDetail,get_classesDetail,get_classDetail,update_classDetail,delete_classDetail
-
 from app.controllers.event_controller import create_event,get_events,get_event,update_event,delete_event
-
 from app.controllers.eventContent_controller import create_eventContent,get_eventContents,get_eventContent,update_eventContent,delete_eventContent
-
 from app.controllers.eventDetail_controller import create_eventDetail,get_eventDetails,get_eventDetail,update_eventDetail,delete_eventDetail
+from app.controllers.auth_controller import login, protected
 
 def register_routes(app):
     api = Blueprint('api', __name__)
@@ -97,5 +94,8 @@ def register_routes(app):
     api.add_url_rule ('/eventDetails/<eventDetailId>', view_func= update_eventDetail, methods=['PUT'])
     api.add_url_rule ('/eventDetails/<eventDetailId>', view_func= delete_eventDetail, methods=['DELETE'])
 
+# Authentication routes
+    api.add_url_rule('/login', 'login', login, methods=['POST'])
+    api.add_url_rule('/protected', 'protected', protected, methods=['GET'])
 
     app.register_blueprint(api, url_prefix='/api')
