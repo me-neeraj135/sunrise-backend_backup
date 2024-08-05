@@ -2,6 +2,8 @@ from flask import request, jsonify
 from bson import ObjectId
 from flasgger import swag_from
 from app.models.event_model  import EventModel
+from app.models.eventDetail_model import EventDetailModel
+ 
 from app import mongo
 
 event_model = EventModel(mongo)
@@ -18,11 +20,18 @@ def create_event():
         "startDate":data['startDate'],
         "endDate":data['endDate'],
         "year": data['year'],
-        "teacherId": data['teacherId']
-
+      "about": data['about'],
+      "highlight": data['highlight'],
+      "label": data['label'],
+      "isActive":1
     }
-    
+
+
     eventId = event_model.create(event_data)
+
+
+
+
     return jsonify({"message": "Event created successfully", "eventId": str(eventId)}), 201
 
 
@@ -60,7 +69,9 @@ def update_event(eventId):
         "startDate":updated_data['startDate'],
         "endDate":updated_data['endDate'],
         "year": updated_data['year'],
-        "teacherId": updated_data['teacherId']
+      "about": updated_data['about'],
+      "highlight": updated_data['highlight'],
+      "label": updated_data['label']
        
 
     }
