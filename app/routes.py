@@ -4,16 +4,14 @@ from .controllers.teacher_controller import create_teacher, get_teachers, get_te
 from app.controllers.user_controller import create_user, get_users, get_user, update_user, delete_user
 from app.controllers.menu_controller import create_menu, get_menu, get_menus, update_menu, delete_menu, create_submenu, get_submenu, get_submenus, update_submenu, delete_submenu
 from app.controllers.product_controller import create_product ,get_products,get_product,update_product,delete_product
-from app.controllers.productDetail_controller import create_productDetail,get_productsDetail,get_productDetail,update_productDetail,delete_productDetail
+
 
 from app.controllers.class_controller import create_class ,get_classes,get_class,update_class,delete_class
-from app.controllers.classDetail_controller import create_classDetail,get_classesDetail,get_classDetail,update_classDetail,delete_classDetail
+
 
 from app.controllers.event_controller import create_event,get_events,get_event,update_event,delete_event
 
-from app.controllers.eventContent_controller import create_eventContent,get_eventContents,get_eventContent,update_eventContent,delete_eventContent
 
-from app.controllers.eventDetail_controller import create_eventDetail,get_eventDetails,get_eventDetail,update_eventDetail,delete_eventDetail
 
 def register_routes(app):
     api = Blueprint('api', __name__)
@@ -56,11 +54,12 @@ def register_routes(app):
 
     # productDetail routes
 
-    api.add_url_rule('/productDetail', view_func=create_productDetail, methods=['POST'])
-    api.add_url_rule('/productDetail', view_func=get_productsDetail, methods=['GET'])
-    api.add_url_rule('/productDetail/<product_id>', view_func=get_productDetail, methods=['GET'])
-    api.add_url_rule('/productDetail/<product_id>', view_func=update_productDetail, methods=['PUT'])
-    api.add_url_rule('/productDetail/<product_id>', view_func=delete_productDetail, methods=['DELETE'])
+    # api.add_url_rule('/productDetail', view_func=create_productDetail, methods=['POST'])
+    # api.add_url_rule('/productDetail', view_func=get_productsDetail, methods=['GET'])
+    # api.add_url_rule('/productDetail/<product_id>', view_func=get_productDetail, methods=['GET'])
+    # api.add_url_rule('/productDetail/<product_id>', view_func=update_productDetail, methods=['PUT'])
+    # api.add_url_rule('/productDetail/<product_id>', view_func=delete_productDetail, methods=['DELETE'])
+
 
     # class routes
     api.add_url_rule ('/classes', view_func= create_class, methods=['POST'])
@@ -69,12 +68,7 @@ def register_routes(app):
     api.add_url_rule ('/classes/<class_id>', view_func= update_class, methods=['PUT'])
     api.add_url_rule ('/classes/<class_id>', view_func= delete_class, methods=['DELETE'])
 
-# class-detail routes
-    api.add_url_rule ('/classDetail', view_func= create_classDetail, methods=['POST'])
-    api.add_url_rule ('/classDetail', view_func= get_classesDetail, methods=['GET'])
-    api.add_url_rule ('/classDetail/<classDetail_id>', view_func= get_classDetail, methods=['GET'])
-    api.add_url_rule ('/classDetail/<classDetail_id>', view_func= update_classDetail, methods=['PUT'])
-    api.add_url_rule ('/classDetail/<classDetail_id>', view_func= delete_classDetail, methods=['DELETE'])
+
 
 # Event
     api.add_url_rule ('/events', view_func= create_event, methods=['POST'])
@@ -83,19 +77,9 @@ def register_routes(app):
     api.add_url_rule ('/events/<eventId>', view_func= update_event, methods=['PUT'])
     api.add_url_rule ('/events/<eventId>', view_func= delete_event, methods=['DELETE'])
 
-#Event-Contents
-    api.add_url_rule ('/eventContents', view_func= create_eventContent, methods=['POST'])
-    api.add_url_rule ('/eventContents', view_func= get_eventContents, methods=['GET'])
-    api.add_url_rule ('/eventContents/<eventContentId>', view_func= get_eventContent, methods=['GET'])
-    api.add_url_rule ('/eventContents/<eventContentId>', view_func= update_eventContent, methods=['PUT'])
-    api.add_url_rule ('/eventContents/<eventContentId>', view_func= delete_eventContent, methods=['DELETE'])
 
-# Event-Details
-    api.add_url_rule ('/eventDetails', view_func= create_eventDetail, methods=['POST'])
-    api.add_url_rule ('/eventDetails', view_func= get_eventDetails, methods=['GET'])
-    api.add_url_rule ('/eventDetails/<eventDetailId>', view_func= get_eventDetail, methods=['GET'])
-    api.add_url_rule ('/eventDetails/<eventDetailId>', view_func= update_eventDetail, methods=['PUT'])
-    api.add_url_rule ('/eventDetails/<eventDetailId>', view_func= delete_eventDetail, methods=['DELETE'])
+
+
 
 
     app.register_blueprint(api, url_prefix='/api')

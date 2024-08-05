@@ -1,24 +1,26 @@
-[{
-  "_id": {
-    "$oid": "6693c7b58b3d3bde81ec497a"
+[
+  {
+    "_id": {
+      "$oid": "6693c7b58b3d3bde81ec497a"
+    },
+    "firstName": "John",
+    "lastName": "Doe",
+    "mobile": "+1234567890",
+    "email": "john.doe@example.com",
+    "password": "password123",
+    "userType": "admin",
+    "IsActive": 1
   },
-  "firstName": "John",
-  "lastName": "Doe",
-  "mobile": "+1234567890",
-  "email": "john.doe@example.com",
-  "password": "password123",
-  "userType": "admin",
-  "IsActive": 1
-},
-{
-  "_id": {
-    "$oid": "66a5d530e5d656345c0862be"
-  },
-  "firstName": "Javed",
-  "lastName": "Ansari",
-  "mobile": "7842350875",
-  "email": "javed@sunrise.com",
-  "password": "password123",
-  "userType": "admin",
-  "IsActive": 1
-}]
+  {
+    "_id": {
+      "$oid": "66a5d530e5d656345c0862be"
+    },
+    "firstName": "Javed",
+    "lastName": "Ansari",
+    "mobile": "7842350875",
+    "email": "javed@sunrise.com",
+    "password": "password123",
+    "userType": "admin",
+    "IsActive": 1
+  }
+]

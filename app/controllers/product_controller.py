@@ -11,13 +11,39 @@ def create_product():
     data = request.json
     print('product--',data)
     product_data = {
+        
         "img": data['img'],
         "title": data['Title'],
         "price": data['price'],
         "priceDisc": data['priceDiscount'],
         "category": data['category'],
-        "description": data['description']
+        "description": data['description'],
+                'currency' :data['currency'],
+        'stock':data['stock'],
+        'availability':data['availability'],
+          "additionalImages": [
+            data['additionalImages'],
+            
+         ],
+
+        "video": data['video'],
+        "specifications": data['specifications'],
+        "features":data ['features'],
+        "color": data['color'],
+        "size": data['size'],
+        "rating": data['rating'],
+        "shippingCost": data['shipping_Cost'],
+        "deliveryTime": data['deliveryTime'],
+        "returnPolicy": data['returnPolicy'],
+        "vendorId": data['vendorId'],
+        "vendorName": data['vendorName'],
+        "vendorContact": data['vendorContact'],
+        "isActive":1
     }
+
+
+
+
     product_id = product_model.create(product_data)
     return jsonify({"message": "Product added successfully", "product_id": str(product_id)}), 201
 
@@ -51,7 +77,27 @@ def update_product(product_id):
         "price": data['price'],
         "priceDisc": data['priceDiscount'],
         "category": data['category'],
-        "description": data['description']
+        "description": data['description'],
+                'currency' :data['currency'],
+        'stock':data['stock'],
+        'availability':data['availability'],
+          "additionalImages": [
+            data['additionalImages'],
+            
+         ],
+
+        "video": data['video'],
+        "specifications": data['specifications'],
+        "features":data ['features'],
+        "color": data['color'],
+        "size": data['size'],
+        "rating": data['rating'],
+        "shippingCost": data['shipping_Cost'],
+        "deliveryTime": data['deliveryTime'],
+        "returnPolicy": data['returnPolicy'],
+        "vendorId": data['vendorId'],
+        "vendorName": data['vendorName'],
+        "vendorContact": data['vendorContact']
     }
     result = product_model.update({'_id': ObjectId(product_id)},product_data)
     
