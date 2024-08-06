@@ -11,7 +11,6 @@
     "userType": "admin",
     "IsActive": 1
   },
-<<<<<<< HEAD
   {
     "_id": {
       "$oid": "66a5d530e5d656345c0862be"
@@ -23,39 +22,17 @@
     "password": "password123",
     "userType": "admin",
     "IsActive": 1
+  },
+  {
+    "_id": {
+      "$oid": "66af4cf240f43ae59d2fca45"
+    },
+    "firstName": "Ali",
+    "lastName": "Ansari",
+    "mobile": "7842350875",
+    "email": "ali@gmail.com",
+    "password": "$2b$12$rWDk17gopiqf/FngjTnodu/Voe5N7ePt5XymizG4SBhBTukKVKPKG",
+    "userType": "user",
+    "IsActive": 1
   }
 ]
-=======
-  "firstName": "John",
-  "lastName": "Doe",
-  "mobile": "+1234567890",
-  "email": "john.doe@example.com",
-  "password": "password123",
-  "userType": "user",
-  "IsActive": 1
-},
-{
-  "_id": {
-    "$oid": "66a5d530e5d656345c0862be"
-  },
-  "firstName": "Javed",
-  "lastName": "Ansari",
-  "mobile": "7842350875",
-  "email": "javed@sunrise.com",
-  "password": "$2b$12$rWDk17gopiqf/FngjTnodu/Voe5N7ePt5XymizG4SBhBTukKVKPKG",
-  "userType": "admin",
-  "IsActive": 1
-},
-{
-  "_id": {
-    "$oid": "66af4cf240f43ae59d2fca45"
-  },
-  "firstName": "Ali",
-  "lastName": "Ansari",
-  "mobile": "7842350875",
-  "email": "ali@gmail.com",
-  "password": "$2b$12$rWDk17gopiqf/FngjTnodu/Voe5N7ePt5XymizG4SBhBTukKVKPKG",
-  "userType": "user",
-  "IsActive": 1
-}]
->>>>>>> dea4d6f2308e1a4f6a8edd28e5b618f41ecb539b
