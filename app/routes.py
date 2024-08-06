@@ -9,12 +9,7 @@ from app.controllers.event_controller import create_event,get_events,get_event,u
 
 
 =======
-from app.controllers.productDetail_controller import create_productDetail,get_productsDetail,get_productDetail,update_productDetail,delete_productDetail
-from app.controllers.class_controller import create_class ,get_classes,get_class,update_class,delete_class
-from app.controllers.classDetail_controller import create_classDetail,get_classesDetail,get_classDetail,update_classDetail,delete_classDetail
-from app.controllers.event_controller import create_event,get_events,get_event,update_event,delete_event
-from app.controllers.eventContent_controller import create_eventContent,get_eventContents,get_eventContent,update_eventContent,delete_eventContent
-from app.controllers.eventDetail_controller import create_eventDetail,get_eventDetails,get_eventDetail,update_eventDetail,delete_eventDetail
+
 from app.controllers.auth_controller import login, protected
 
 def register_routes(app):
@@ -56,16 +51,7 @@ def register_routes(app):
     api.add_url_rule('/products/<product_id>', view_func=update_product, methods=['PUT'])
     api.add_url_rule('/products/<product_id>', view_func=delete_product, methods=['DELETE'])
 
-    # productDetail routes
-
-    # api.add_url_rule('/productDetail', view_func=create_productDetail, methods=['POST'])
-    # api.add_url_rule('/productDetail', view_func=get_productsDetail, methods=['GET'])
-    # api.add_url_rule('/productDetail/<product_id>', view_func=get_productDetail, methods=['GET'])
-    # api.add_url_rule('/productDetail/<product_id>', view_func=update_productDetail, methods=['PUT'])
-    # api.add_url_rule('/productDetail/<product_id>', view_func=delete_productDetail, methods=['DELETE'])
-
-
-    # class routes
+     # class routes
     api.add_url_rule ('/classes', view_func= create_class, methods=['POST'])
     api.add_url_rule ('/classes', view_func= get_classes, methods=['GET'])
     api.add_url_rule ('/classes/<class_id>', view_func= get_class, methods=['GET'])
