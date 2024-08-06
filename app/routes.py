@@ -4,24 +4,18 @@ from .controllers.teacher_controller import create_teacher, get_teachers, get_te
 from app.controllers.user_controller import create_user, get_users, get_user, update_user, delete_user
 from app.controllers.menu_controller import create_menu, get_menu, get_menus, update_menu, delete_menu, create_submenu, get_submenu, get_submenus, update_submenu, delete_submenu
 from app.controllers.product_controller import create_product ,get_products,get_product,update_product,delete_product
-<<<<<<< HEAD
-
-
 from app.controllers.class_controller import create_class ,get_classes,get_class,update_class,delete_class
-
-
 from app.controllers.event_controller import create_event,get_events,get_event,update_event,delete_event
 
 
 =======
-
+from app.controllers.productDetail_controller import create_productDetail,get_productsDetail,get_productDetail,update_productDetail,delete_productDetail
 from app.controllers.class_controller import create_class ,get_classes,get_class,update_class,delete_class
-
+from app.controllers.classDetail_controller import create_classDetail,get_classesDetail,get_classDetail,update_classDetail,delete_classDetail
 from app.controllers.event_controller import create_event,get_events,get_event,update_event,delete_event
-
-
+from app.controllers.eventContent_controller import create_eventContent,get_eventContents,get_eventContent,update_eventContent,delete_eventContent
+from app.controllers.eventDetail_controller import create_eventDetail,get_eventDetails,get_eventDetail,update_eventDetail,delete_eventDetail
 from app.controllers.auth_controller import login, protected
->>>>>>> dea4d6f2308e1a4f6a8edd28e5b618f41ecb539b
 
 def register_routes(app):
     api = Blueprint('api', __name__)
