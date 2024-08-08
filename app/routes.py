@@ -8,7 +8,7 @@ from app.controllers.class_controller import create_class ,get_classes,get_class
 from app.controllers.event_controller import create_event,get_events,get_event,update_event,delete_event
 
 
-=======
+
 
 from app.controllers.auth_controller import login, protected
 

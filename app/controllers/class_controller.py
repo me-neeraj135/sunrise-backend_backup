@@ -11,11 +11,14 @@ classDetail_model=ClassDetailModel(mongo)
 
 def create_class():
     data = request.json
+
+    print('class--data--',data)
     class_data = {
         "className": data["className"],
         "aboutClass": data["aboutClass"],
-        "students": data["students"],
-        "classUrl":data['classUrl'],
+        "classUrl":data['classImage'],
+        "students": data["classStudent"],
+        "subjects":data['classSubject'],
         "isActive":data['isActive']
        
     }
@@ -27,7 +30,7 @@ def create_class():
         "classId":class_id,
         "className": data["className"],
         "aboutClass": data["aboutClass"],
-        "subjects": data['subjects'],
+        "subjects": data['classSubject'],
         
     }
    
@@ -106,9 +109,9 @@ def update_class(class_id):
     class_data = {
         "className": updated_data["className"],
         "aboutClass": updated_data["aboutClass"],
-        "students": updated_data["students"],
         "classUrl":updated_data['classUrl'],
-        "subjects": updated_data['subjects']
+        "students": updated_data["classStudent"],
+        "subjects":updated_data['classSubject'],
 
     }
 
@@ -132,3 +135,6 @@ def delete_class(class_id):
 
    
     return jsonify({'message': 'Class and detail deleted successfully'}), 200
+
+
+
