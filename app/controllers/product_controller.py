@@ -13,7 +13,7 @@ def create_product():
     product_data = {
         
         "img": data['img'],
-        "title": data['Title'],
+        "title": data['title'],
         "price": data['price'],
         "priceDisc": data['priceDiscount'],
         "category": data['category'],
@@ -38,7 +38,7 @@ def create_product():
         "vendorId": data['vendorId'],
         "vendorName": data['vendorName'],
         "vendorContact": data['vendorContact'],
-        "isActive":1
+        "isActive": data['isActive']
     }
 
 

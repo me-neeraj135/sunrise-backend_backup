@@ -11,19 +11,21 @@ event_model = EventModel(mongo)
 
 def create_event():
     data = request.json
+    print('evt-data--',data)
     event_data = {
-        "title": data['title'],
-        "location": data['location'],
-        "img":data['img'],
+        "title": data['eventTitle'],
+        "organizerName":data['organizerName'],
+        "location": data['eventAddress'],
+        "img":data['eventImage'],
         "startTime": data['startTime'],
         "endTime":data['endTime'],
         "startDate":data['startDate'],
         "endDate":data['endDate'],
-        "year": data['year'],
-      "about": data['about'],
-      "highlight": data['highlight'],
-      "label": data['label'],
-      "isActive":1
+        "year": data['eventYear'],
+      "about": data['aboutEvent'],
+      "highlight": data['eventHighLight'],
+      "label": data['eventLabel'],
+      "isActive":data['isActive']
     }
 
 
@@ -61,17 +63,19 @@ def update_event(eventId):
         return jsonify({'error': 'Event not found'}), 404
 
     event_data = {
-        "title": updated_data['title'],
-        "location": updated_data['location'],
-        "img":updated_data['img'],
+        "title": updated_data['eventTitle'],
+        "organizerName":updated_data['organizerName'],
+        "location": updated_data['eventAddress'],
+        "img":updated_data['eventImage'],
         "startTime": updated_data['startTime'],
         "endTime":updated_data['endTime'],
         "startDate":updated_data['startDate'],
         "endDate":updated_data['endDate'],
-        "year": updated_data['year'],
-      "about": updated_data['about'],
-      "highlight": updated_data['highlight'],
-      "label": updated_data['label']
+        "year": updated_data['eventYear'],
+      "about": updated_data['aboutEvent'],
+      "highlight": updated_data['eventHightLight'],
+      "label": updated_data['eventLabel'],
+      "isActive":updated_data['isActive']
        
 
     }
@@ -81,7 +85,7 @@ def update_event(eventId):
     if result.modified_count == 0:
         return jsonify({'error': 'Event update failed'}), 500
     
-    return jsonify({'message': 'Event updated successfully'}), 200
+    return jsonify({'message': 'Event updated successfully',"updatedEvent":result}), 200
 
 
 def delete_event(eventId):
@@ -89,4 +93,4 @@ def delete_event(eventId):
     if result.deleted_count == 0:
         return jsonify({'error': 'Event not found or delete failed'}), 404
     
-    return jsonify({'message': 'Event deleted successfully'}), 200
+    return jsonify({'message': 'Event deleted successfully','deletedEvent':result}), 200

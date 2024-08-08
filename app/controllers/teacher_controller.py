@@ -10,11 +10,12 @@ teacher_detail_model = TeacherDetailModel(mongo)
 
 def create_teacher():
     data = request.json
+    print('tch--',data)
     # Save to teacher collection
     teacher_data = {
         "age": data["age"],
         "gender": data["gender"],
-        "img": data["img"],
+        "img": data["teacherImage"],
         "name": data["name"],
         "position": data["position"],
         "isActive": 1
@@ -104,7 +105,7 @@ def update_teacher(teacher_id):
         'name': data['name'],
         'age': data['age'],
         'gender': data['gender'],
-        'img': data['img'],
+        'img': data['teacherImage'],
         'position': data['position']
     }
     teacher_detail_data = {

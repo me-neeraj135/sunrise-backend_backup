@@ -739,8 +739,17 @@ definitions:
         type: string
         example: Male
       img:
-        type: string
-        example: assets/images/our-team/pic1.jpg
+        type: object
+        properties:
+          name:
+            type: string
+            example: assets/images/our-team/pic1.jpg
+          size:
+             type: number
+             example : 6386175
+          type:
+            type : string
+            example : "image/png"
       position:
         type: string
         example: Principal
@@ -932,6 +941,9 @@ definitions:
   Event:
     type: object
     properties:
+      organizerName:
+        type: string
+        example: 'Sunrise School '
       title:
         type: string
         example: 'Music Festival'
@@ -939,8 +951,17 @@ definitions:
         type: string
         example: 'Central Park'
       img:
-        type: string
-        example: 'assets/images/events/grid/pic1.jpg'
+        type: object
+        properties:
+          name:
+            type: string
+            example: assets/images/our-team/pic1.jpg
+          size:
+             type: number
+             example : 6386175
+          type:
+            type : string
+            example : "image.png"
       isActive:
         type: integer
         example: 1
@@ -988,8 +1009,17 @@ definitions:
         type: string
         example: 'KG'
       classUrl:
-        type: string
-        example: 'https://plus.unsplash.com/premium_photo-1663088989178-a570bdb3153c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80'
+        type: object
+        properties: 
+          name:
+            type: string
+            example: 'https://plus.unsplash.com/premium_photo-1663088989178-a570bdb3153c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80'
+          size:
+             type: number
+             example : 6386175
+          type:
+            type : string
+            example : "image/png"
       aboutClass:
         type: string
         example: 'Kindergarten or KG focuses on kids of 4 to 6 years or above. The second most class that introduces academics to the kids.'
