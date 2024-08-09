@@ -7,7 +7,7 @@ from app.controllers.product_controller import create_product ,get_products,get_
 from app.controllers.class_controller import create_class ,get_classes,get_class,update_class,delete_class
 from app.controllers.event_controller import create_event,get_events,get_event,update_event,delete_event
 
-
+from app.controllers.testimonial_controller import create_testimonial,get_testimonials,get_testimonial,update_testimonial,delete_testimonial
 
 
 from app.controllers.auth_controller import login, protected
@@ -68,7 +68,12 @@ def register_routes(app):
     api.add_url_rule ('/events/<eventId>', view_func= delete_event, methods=['DELETE'])
 
 
-
+# Testimonials
+    api.add_url_rule ('/testimonials', view_func= create_testimonial, methods=['POST'])
+    api.add_url_rule ('/testimonials', view_func= get_testimonials, methods=['GET'])
+    api.add_url_rule ('/testimonials/<testimonial_id>', view_func= get_testimonial, methods=['GET'])
+    api.add_url_rule ('/testimonials/<testimonial_id>', view_func= update_testimonial, methods=['PUT'])
+    api.add_url_rule ('/testimonials/<testimonial_id>', view_func= delete_testimonial, methods=['DELETE'])
 
 
 # Authentication routes

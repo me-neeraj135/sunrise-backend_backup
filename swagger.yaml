@@ -163,7 +163,7 @@ paths:
         404:
           description: product not found or delete failed
 
-  # Product_Detail
+  
 
 
   # teacher routes
@@ -690,10 +690,123 @@ paths:
                 type: string
                 example: "Event detail not found"
 
+# testimonial routes
 
+  /testimonials:
+    post:
+      summary: "Create a new testimonial "
+      description: "Creates a new testimonial  with the provided information."
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "Testimonial  object that needs to be added"
+          required: true
+          schema:
+            $ref: "#/definitions/Testimonial"
+      responses:
+        201:
+          description: "Testimonial  created successfully"
+          schema:
+            $ref: "#/definitions/Testimonial"
 
-
-
+    get:
+      summary: "Get list of all Testimonial "
+      description: "Returns a list of all Testimonial ."
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "List of Testimonial "
+          schema:
+            type: array
+            items:
+                $ref: "#/definitions/Testimonial"
+  /testimonials/{testimonialId}:
+    get:
+      summary: "Get Testimonial  by ID"
+      description: "Returns an Testimonial  based on the ID provided."
+      produces:
+        - "application/json"
+      parameters:
+        - name: "testimonialId"
+          in: "path"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Testimonial  retrieved successfully"
+          schema:
+            $ref: "#/definitions/Testimonial"
+        404:
+          description: "Event  not found"
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                example: "Event  not found"
+    put:
+      summary: "Update Testimonial  by ID"
+      description: "Updates an Testimonial  based on the ID provided."
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "testimonialId"
+          in: "path"
+          required: true
+          type: string
+        - in: "body"
+          name: "body"
+          description: "Testimonial  object with updated information"
+          required: true
+          schema:
+            $ref: "#/definitions/Testimonial"
+      responses:
+        200:
+          description: "Testimonial  updated successfully"
+          schema:
+            $ref: "#/definitions/Testimonial"
+        404:
+          description: "Testimonial  not found"
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                example: "Testimonial  not found"
+    delete:
+      summary: "Delete Testimonial  by ID"
+      description: "Deletes the Testimonial  based on the ID provided."
+      produces:
+        - "application/json"
+      parameters:
+        - name: "testimonialId"
+          in: "path"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Testimonial  deleted successfully"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Testimonial  deleted"
+        404:
+          description: "Testimonial  not found"
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                example: "Testimonial detail not found"
 
 
 
@@ -993,11 +1106,6 @@ definitions:
         example: 'But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and'
 
 
-      
-
-
-      
-
   # Class
   Class:
     type: object
@@ -1037,4 +1145,47 @@ definitions:
           type : string
         example: ['English','Mathematics','General_Awareness','Extracurricular_Activities']
           
+# Testimonial
+
+  Testimonial:
+    type: object
+    properties:
+      userName:
+        type: string
+        example: 'Arya Stark '
+      userId:
+        type: string
+        example: '153408dlsfljaf304320f '
+      category:
+        type: 'string'
+        example: 'Education'
+      title:
+        type: string
+        example: 'Why is Early Education Essential?'
+      about:
+        type: string
+        example: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry'
+      date:
+        type : string
+        example : 01 December 2024
+      img:
+        type: object
+        properties:
+          name:
+            type: string
+            example: assets/images/our-team/pic1.jpg
+          size:
+             type: number
+             example : 6386175
+          type:
+            type : string
+            example : "image.png"
+      isActive:
+        type: integer
+        example: 1
+      
+  
+
+
+
       
