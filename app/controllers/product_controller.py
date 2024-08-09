@@ -73,7 +73,7 @@ def update_product(product_id):
 
     product_data = {
         "img": data['img'],
-        "title": data['Title'],
+        "title": data['title'],
         "price": data['price'],
         "priceDisc": data['priceDiscount'],
         "category": data['category'],
