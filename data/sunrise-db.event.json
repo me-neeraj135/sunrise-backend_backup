@@ -1,0 +1,41 @@
+[
+  {
+    "_id": {
+      "$oid": "66b045b929950eacee48c1fb"
+    },
+    "title": "Music Festival",
+    "location": "Central Park",
+    "img": "assets/images/events/grid/pic1.jpg",
+    "startTime": "18:00",
+    "endTime": "22:00",
+    "startDate": "15 Jun",
+    "endDate": "15 Jun",
+    "year": "2024",
+    "about": "Experience the best of live music in the heart of the city at Central Park.",
+    "highlight": "Live performances by top artists and bands from around the world.",
+    "label": "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and",
+    "isActive": 1
+  },
+  {
+    "_id": {
+      "$oid": "66b3b1e6240c9d341e71c7d3"
+    },
+    "title": "National Event",
+    "organizerName": "Sunrise",
+    "location": "Rath",
+    "img": {
+      "name": "alex-mccarthy-RGKdWJOUFH0-unsplash.jpg",
+      "size": 3380649,
+      "type": "image/jpeg"
+    },
+    "startTime": "08:00",
+    "endTime": "10:00",
+    "startDate": "2024-08-15",
+    "endDate": "2024-08-15",
+    "year": 2024,
+    "about": "qqqq",
+    "highlight": "aaaaa",
+    "label": "aaaa",
+    "isActive": [1]
+  }
+]

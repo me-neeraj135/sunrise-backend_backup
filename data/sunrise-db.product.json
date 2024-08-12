@@ -1,0 +1,98 @@
+[
+  {
+    "_id": {
+      "$oid": "66b0469129950eacee48c1fd"
+    },
+    "img": "https://images.unsplash.com/photo-1721403715005-cd5df8ab90ee?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzNHx8fGVufDB8fHx8fA%3D%3D",
+    "title": "School Bag",
+    "price": "$10",
+    "priceDisc": "$5",
+    "category": "Bag",
+    "description": "A durable and spacious school bag perfect for students.",
+    "currency": "$10",
+    "stock": "25",
+    "availability": "in stock",
+    "additionalImages": [["string"]],
+    "video": "assets/videos/product/item1.mp4",
+    "specifications": {
+      "dimensions": "40*30*15",
+      "material": "Polyester",
+      "weight": "0.8kg"
+    },
+    "features": ["string"],
+    "color": "red,blue,green",
+    "size": ["S", "M", "L"],
+    "rating": "4.5",
+    "shippingCost": "$5",
+    "deliveryTime": "3-5 business days",
+    "returnPolicy": "30-day return policy",
+    "vendorId": "501",
+    "vendorName": "Sunrise School Supplies Co.",
+    "vendorContact": "support@schoolsupplies.com",
+    "isActive": 1
+  },
+  {
+    "_id": {
+      "$oid": "66b046df29950eacee48c1ff"
+    },
+    "img": "https://images.unsplash.com/photo-1721403715005-cd5df8ab90ee?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzNHx8fGVufDB8fHx8fA%3D%3D",
+    "title": "lunch box",
+    "price": "$10",
+    "priceDisc": "$5",
+    "category": "Bag",
+    "description": "A durable and spacious school bag perfect for students.",
+    "currency": "$10",
+    "stock": "50",
+    "availability": "in stock",
+    "additionalImages": [["string"]],
+    "video": "assets/videos/product/item1.mp4",
+    "specifications": {
+      "dimensions": "40*30*15",
+      "material": "Polyester",
+      "weight": "0.8kg"
+    },
+    "features": ["string"],
+    "color": "red,blue,green",
+    "size": ["S", "M", "L"],
+    "rating": "4.5",
+    "shippingCost": "$5",
+    "deliveryTime": "3-5 business days",
+    "returnPolicy": "30-day return policy",
+    "vendorId": "501",
+    "vendorName": "Sunrise School Supplies Co.",
+    "vendorContact": "support@schoolsupplies.com",
+    "isActive": 1
+  },
+  {
+    "_id": {
+      "$oid": "66b4daf6f05c17f3e510ddb6"
+    },
+    "img": {},
+    "title": "School Bag",
+    "price": "50",
+    "priceDisc": "5",
+    "category": "Bag",
+    "description": "aaaaaaaaaa",
+    "currency": "10",
+    "stock": "25",
+    "availability": "in stock",
+    "additionalImages": [[null]],
+    "video": "",
+    "specifications": {
+      "dimensions": "40*30*15",
+      "material": "Polyester",
+      "weight": "0.8kg"
+    },
+    "features": ["a", "b", "c"],
+    "color": "red,blue,green",
+    "size": ["s", "m", "l"],
+    "rating": "5",
+    "shippingCost": "5",
+    "deliveryTime": "3-5 business days",
+    "returnPolicy": "30-day return policy",
+    "vendorId": "501",
+    "vendorName": "Sunrise School Supplies Co.",
+    "vendorContact": "support@schoolsupplies.com",
+    "isActive": ""
+  }
+]

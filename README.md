@@ -16,8 +16,6 @@ flask_rest_api/
 ├── requirements.txt # Project dependencies
 ├── README.md # Project overview and setup instructions
 
-
-
 ## Setup Instructions
 
 ### Prerequisites
@@ -29,9 +27,9 @@ flask_rest_api/
 
 Clone the repository:
 
-   ```sh
-   git clone https://github.com/javedansari81/sunrise-backend.git
-   cd sunrise-backend
+```sh
+git clone https://github.com/javedansari81/sunrise-backend.git
+cd sunrise-backend
 
 ## Create and activate a virtual environment:
 
@@ -47,3 +45,4 @@ pip install -r requirements.txt
 python app.py
 
 Access the Swagger UI for interactive API documentation at http://127.0.0.1:5000/apidocs/
+```
