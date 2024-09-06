@@ -126,15 +126,23 @@ def update_class(class_id):
 
 
 def delete_class(class_id):
+    print('class_id--',class_id)
+    # Fetch Class details
+    class_data = class_model.find_one({'_id': ObjectId(class_id)})
+    if not class_data:
+        return jsonify({'error': 'Class Details not found'}), 404
     
-    result = class_model.delete({'_id': ObjectId(class_id)})
-    if result.deleted_count == 0:
-        return jsonify({'error': 'Class not found or delete failed'}), 404
+    # Update the isActive field to 0
+    result = class_model.update_one(
+        {'_id': ObjectId(class_id)},
+        {'$set': {'isActive': 0}}
+    )
+
+    # Delete associated Class details
+    # classDetail_model.delete_many({'teacherId': ObjectId(teacher['_id'])})
     
-    class_detail_data = classDetail_model.delete({'classId':ObjectId(class_id)})
+    return jsonify({'matched_count': result.matched_count, 'modified_count': result.modified_count}), 200
 
-   
-    return jsonify({'message': 'Class and detail deleted successfully'}), 200
-
+ 
 
 

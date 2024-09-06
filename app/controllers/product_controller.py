@@ -1,15 +1,15 @@
 from flask import request, jsonify
 from bson import ObjectId
 from flasgger import swag_from
-
+from gridfs import GridFS
 from app.models.product_model import ProductModel
 from app import mongo
 
 product_model = ProductModel(mongo)
-
+fs = GridFS(mongo.db)  # Initialize GridFS
 def create_product():
     data = request.json
-    print('product--',data)
+    print('product--',data['additionalImages'])
     product_data = {
         
         "img": data['img'],
@@ -47,6 +47,10 @@ def create_product():
     product_id = product_model.create(product_data)
     return jsonify({"message": "Product added successfully", "product_id": str(product_id)}), 201
 
+
+
+
+
 def get_products():
     products = product_model.find({})
     if not products:
@@ -65,8 +69,14 @@ def get_product(product_id):
     product['_id'] = str(product['_id'])
     return jsonify(product), 200
 
+
+
+
+
+
 def update_product(product_id):
     data = request.json
+    print('pd--',product_id)
     product = product_model.find_one({'_id': ObjectId(product_id)})
     if not product:
         return jsonify({'error': 'Product not found'}), 404
@@ -112,6 +122,7 @@ def delete_product(product_id):
         return jsonify({'error': 'Product not found or delete failed'}), 404
     
     return jsonify({'message': 'Product deleted successfully'}), 200
+
 
 
 

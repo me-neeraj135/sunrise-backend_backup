@@ -845,24 +845,18 @@ definitions:
       name:
         type: string
         example: Nashid Martines
+      email:
+        type : string
+        example : johnsnow@gmail.com
       age:
         type: integer
         example: 40
       gender:
         type: string
         example: Male
-      img:
-        type: object
-        properties:
-          name:
-            type: string
-            example: assets/images/our-team/pic1.jpg
-          size:
-             type: number
-             example : 6386175
-          type:
-            type : string
-            example : "image/png"
+      teacherImage:
+        type: string
+        example: https://images.unsplash.com/photo-1721403715005-cd5df8ab90ee?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzNHx8fGVufDB8fHx8fA%3D%3D
       position:
         type: string
         example: Principal
@@ -967,7 +961,7 @@ definitions:
       img:
         type: string
         example: https://images.unsplash.com/photo-1721403715005-cd5df8ab90ee?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzNHx8fGVufDB8fHx8fA%3D%3D
-      Title:
+      title:
         type: string
         example: School Bag
       price:
@@ -995,6 +989,7 @@ definitions:
         type: array
         items:
           type: string
+          example: 'https://images.unsplash.com/photo-1723239406233-88c68024a4d5?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
       video:
         type: string
         format: 'mp4'
@@ -1057,24 +1052,15 @@ definitions:
       organizerName:
         type: string
         example: 'Sunrise School '
-      title:
+      eventTitle:
         type: string
         example: 'Music Festival'
-      location:
+      eventAddress:
         type: string
         example: 'Central Park'
-      img:
-        type: object
-        properties:
-          name:
-            type: string
-            example: assets/images/our-team/pic1.jpg
-          size:
-             type: number
-             example : 6386175
-          type:
-            type : string
-            example : "image.png"
+      eventImage:
+        type: string
+        example: 'https://images.unsplash.com/photo-1723239406233-88c68024a4d5?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
       isActive:
         type: integer
         example: 1
@@ -1090,18 +1076,18 @@ definitions:
       endDate:
         type: string
         example: '15 Jun'
-      year:
+      eventYear:
         type: string
         example: '2024'
   
-      about:
+      aboutEvent:
         type: string
         example: 'Experience the best of live music in the heart of the city at Central Park.'
-      highlight:
+      eventHighLight:
         type: string
         example: 'Live performances by top artists and bands from around the world.'
 
-      label:
+      eventLabel:
         type: string
         example: 'But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and'
 
@@ -1116,22 +1102,14 @@ definitions:
       className:
         type: string
         example: 'KG'
-      classUrl:
-        type: object
-        properties: 
-          name:
-            type: string
-            example: 'https://plus.unsplash.com/premium_photo-1663088989178-a570bdb3153c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80'
-          size:
-             type: number
-             example : 6386175
-          type:
-            type : string
-            example : "image/png"
+      classImage:
+        type: string
+        example: 'https://plus.unsplash.com/premium_photo-1663088989178-a570bdb3153c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80'
+
       aboutClass:
         type: string
         example: 'Kindergarten or KG focuses on kids of 4 to 6 years or above. The second most class that introduces academics to the kids.'
-      students:
+      classStudent:
         type: string
         example: '50'
 
@@ -1139,7 +1117,7 @@ definitions:
         type: string
         example: 'KG'
 
-      subjects:
+      classSubject:
         type: array
         items:
           type : string
@@ -1169,17 +1147,8 @@ definitions:
         type : string
         example : 01 December 2024
       img:
-        type: object
-        properties:
-          name:
-            type: string
-            example: assets/images/our-team/pic1.jpg
-          size:
-             type: number
-             example : 6386175
-          type:
-            type : string
-            example : "image.png"
+        type: string
+        example: 'https://images.unsplash.com/photo-1723239406233-88c68024a4d5?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
       isActive:
         type: integer
         example: 1
