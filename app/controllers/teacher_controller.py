@@ -17,6 +17,7 @@ def create_teacher():
         "gender": data["gender"],
         "img": data["teacherImage"],
         "name": data["name"],
+        "email":data["email"],
         "position": data["position"],
         "isActive": 1
     }
@@ -48,6 +49,8 @@ def get_teachers():
         teacher_data = {
             '_id': str(teacher['_id']),
             'name': teacher['name'],
+            'email':teacher['email'],
+
             'age': teacher['age'],
             'gender': teacher['gender'],
             'img': teacher['img'],
@@ -70,6 +73,7 @@ def get_teachers():
 def get_teacher(teacher_id):
         # Fetch teacher details
     teacher = teacher_model.find_one({'_id': ObjectId(teacher_id)})
+
     if not teacher:
         return jsonify({'error': 'Teacher not found'}), 404
 
@@ -82,6 +86,8 @@ def get_teacher(teacher_id):
     response_data = {
         '_id': str(teacher['_id']),
         'name': teacher['name'],
+        "email":teacher["email"],
+
         'age': teacher['age'],
         'gender': teacher['gender'],
         'img': teacher['img'],
@@ -103,6 +109,8 @@ def update_teacher(teacher_id):
         return jsonify({'error': 'Teacher not found'}), 404
     teacher_data = {
         'name': data['name'],
+        "email":data["email"],
+
         'age': data['age'],
         'gender': data['gender'],
         'img': data['teacherImage'],
@@ -118,11 +126,25 @@ def update_teacher(teacher_id):
     teacher_detail_model.update({'teacherId': ObjectId(teacher['_id'])}, teacher_detail_data)
     return jsonify({'modified_count': result.modified_count}), 200
 
+
+
+
+
+
 def delete_teacher(teacher_id):
+    print('dtch--',teacher_id)
     # Fetch teacher details
     teacher = teacher_model.find_one({'_id': ObjectId(teacher_id)})
     if not teacher:
         return jsonify({'error': 'Teacher not found'}), 404
-    result = teacher_model.delete({'_id': ObjectId(teacher_id)})
-    teacher_detail_model.delete({'teacherId': ObjectId(teacher['_id'])})
-    return jsonify({'deleted_count': result.deleted_count}), 200
+    
+    # Update the isActive field to 0
+    result = teacher_model.update_one(
+        {'_id': ObjectId(teacher_id)},
+        {'$set': {'isActive': 0}}
+    )
+
+    # Delete associated teacher details
+    # teacher_detail_model.delete_many({'teacherId': ObjectId(teacher['_id'])})
+    
+    return jsonify({'matched_count': result.matched_count, 'modified_count': result.modified_count}), 200

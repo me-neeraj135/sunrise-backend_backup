@@ -845,6 +845,9 @@ definitions:
       name:
         type: string
         example: Nashid Martines
+      email:
+        type : string
+        example : johnsnow@gmail.com
       age:
         type: integer
         example: 40

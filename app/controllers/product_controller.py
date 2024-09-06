@@ -76,6 +76,7 @@ def get_product(product_id):
 
 def update_product(product_id):
     data = request.json
+    print('pd--',product_id)
     product = product_model.find_one({'_id': ObjectId(product_id)})
     if not product:
         return jsonify({'error': 'Product not found'}), 404
