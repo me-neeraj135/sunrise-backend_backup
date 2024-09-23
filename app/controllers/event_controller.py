@@ -24,7 +24,10 @@ def create_event():
         "year": data['eventYear'],
       "about": data['aboutEvent'],
       "highlight": data['eventHighLight'],
-      "label": data['eventLabel'],
+      "label": data['eventLabels'],
+      "email":data['email'],
+      'phone':data['phone'],
+      'category':data['category'],
       "isActive":data['isActive']
     }
 
@@ -58,6 +61,7 @@ def get_event(eventId):
 
 def update_event(eventId):
     updated_data = request.json
+    print('updated_data',updated_data)
     updating_event= event_model.find_one({'_id': ObjectId(eventId)})
     if not updating_event:
         return jsonify({'error': 'Event not found'}), 404
@@ -73,8 +77,11 @@ def update_event(eventId):
         "endDate":updated_data['endDate'],
         "year": updated_data['eventYear'],
       "about": updated_data['aboutEvent'],
-      "highlight": updated_data['eventHightLight'],
-      "label": updated_data['eventLabel'],
+      "highlight": updated_data['eventHighLight'],
+      "label": updated_data['eventLabels'],
+        "email":updated_data['email'],
+      'phone':updated_data['phone'],
+      'category':updated_data['category'],
       "isActive":updated_data['isActive']
        
 
